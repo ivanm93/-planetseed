@@ -33,7 +33,8 @@ public class Usuario {
     private Integer edad;
     private String email;
     private String password;
-  @OneToOne
+    
+    @OneToOne
     private Imagen imagen;
     
     @Enumerated(EnumType.STRING)
