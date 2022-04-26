@@ -8,5 +8,5 @@ package planetseed.proyectofinal.enumeraciones;
 
 
 public enum Tipo {
-    PINO, PLATANO, CEIBO, JACARANDA 
+    MANZANO,
 }

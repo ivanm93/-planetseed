@@ -35,4 +35,6 @@ public class Arbol {
     
     private Integer puntos;
     
+    private Boolean alta;
+    
 }

@@ -42,7 +42,7 @@ public class UsuarioServicio implements UserDetailsService {
     public Usuario crear(String nombre, String apellido, Integer edad, String email, 
             String password, MultipartFile archivo) throws ErrorServicio {
 
-//        validar();
+        validar(nombre, apellido, edad, email, password);
 
         Usuario u = new Usuario();
         
@@ -69,6 +69,26 @@ public class UsuarioServicio implements UserDetailsService {
     @Transactional(readOnly = true)
     public Usuario buscarPorEmail(String email) {
         return usuarioRepo.buscarPorEmail(email);
+    }
+    
+    public void validar(String nombre, String apellido, Integer edad, String email, 
+            String password) throws ErrorServicio {
+             
+        if (nombre == null || nombre.isEmpty()) {
+            throw new ErrorServicio("El nombre es inválido");
+        }
+        if (apellido == null || apellido.isEmpty()) {
+            throw new ErrorServicio("El apellido es inválido");
+        }      
+        if (edad == null || edad < 1) {
+            throw new ErrorServicio("La edad es inválida");
+        }      
+        if (email == null || email.isEmpty()) {
+            throw new ErrorServicio("El mail es inválido");
+        }
+        if (password == null || password.isEmpty() || password.length()<3) {
+            throw new ErrorServicio("La contraseña es inválida");
+        }
     }
     
     @Override
