@@ -33,7 +33,31 @@
     width: 800px;
     height: 550px;
     background-color: #DAF7A6;
-    margin:30px auto;
+    margin:10px auto;
     text-align : center;
+   
+}
 
+.botonregar{
+  width: 800px;
+  margin: 10px auto;
+  text-align:right;
+}
+
+.position{
+position: absolute;
+top: 700px;
+text-align: center;
+left: 100px;
+
+}
+
+.texto{
+  width: 750px;
+  margin: auto;
+  text-align: left;
+
+}
+.imagen{
+  width: 750px;
 }

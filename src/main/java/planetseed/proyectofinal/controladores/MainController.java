@@ -35,6 +35,11 @@ public class MainController {
         return "contenido.html";
     }
     
+       @GetMapping("/resumen")
+     public String Resumen(){
+        return "resumen.html";
+    }
+    
          @GetMapping("/cuestionario")
     public String Cuestionario(){
         return "cuestionario.html";
