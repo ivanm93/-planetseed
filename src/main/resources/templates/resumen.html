@@ -51,7 +51,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/perfil">Perfil</a>
+            <a class="nav-link" aria-current="page" href="/perfil">Perfil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/arbol">Arbol</a>
@@ -70,7 +70,7 @@
   <!-- resumen de temas-->
 
   <!-- resumen de eolica -->
-  <section id="energiaeolica">
+  <section id="energiaeolica"  th:if="${valor} == '1'">
     <div class="position">
       <h1>¿Qué es la energía eólica? La importancia del viento como renovable</h1>
     </div>
@@ -128,8 +128,9 @@
         generar puestos de trabajo y reducir con el aumento de la capacidad de energía eólica el coste de la
         electricidad.</p>
     </div>
-
+<div class="btnquestion">
     <a href="/cuestionario" class="btn btn-primary">Ir al cuestionario</a>
+  </div>
   </section>
 
   <!-- reforestacion -->
@@ -146,7 +147,7 @@
   </section>
 
   <!-- energia solar -->
-  <section id="energiasolar">
+  <section id="energiasolar" th:if="${valor}==5">
     <div class="position">
       <h1>¿Qué es y cómo funciona la energía solar? </h1>
     </div>
@@ -233,9 +234,13 @@
       <p> De autoconsumo - instalaciones individuales en los hogares</p>
       <p> Huertos solares - para la producción a gran escala y la comercialización de la energía obtenida.</p>
     </div>
+    <div class="btnquestion">
+      <a href="/cuestionario" class="btn btn-primary">Ir al cuestionario</a>
+    </div>
   </section>
+  
   <!-- fauna -->
-  <section id="fauna">
+  <section id="fauna" th:if="${valor}==6">
     <div class="position">
       <h1>10 consejos para la protección animal</h1>
     </div>
@@ -298,9 +303,12 @@
         animales; ayudar a la preservación de la fauna es una oportunidad vital insuperable, auténtica y trepidante.
       </p>
     </div>
+    <div class="btnquestion">
+      <a href="/cuestionario" class="btn btn-primary">Ir al cuestionario</a>
+    </div>
   </section>
   <!-- flora -->
-  <section id="flora">
+  <section id="flora" th:if="${valor}==7">
     <div class="position">
       <h1>Por qué es importante cuidar el medio ambiente</h1>
     </div>
@@ -371,9 +379,12 @@
         alt="Por qué es importante cuidar el medio ambiente - Cómo hacer un legado solidario" width="600" height="400">
 
     </div>
+    <div class="btnquestion">
+      <a href="/cuestionario" class="btn btn-primary">Ir al cuestionario</a>
+    </div>
   </section>
   <!-- reciclaje -->
-  <section id="reciclaje">
+  <section id="reciclaje" th:if="${valor}==8">
     <div class="position">
       <h1>¿Por qué es importante Reciclar?</h1>
     </div>
@@ -433,9 +444,12 @@
        </li>
      </ul>
     </div>
+    <div class="btnquestion">
+      <a href="/cuestionario" class="btn btn-primary">Ir al cuestionario</a>
+    </div>
   </section>
   <!-- planta tu arbol -->
-  <section id="plantatuarbol">
+  <section id="plantatuarbol" th:if="${valor}==9">
     <div class="position">
       <h1>¿como plantar tu arbo?</h1>
     </div>
@@ -498,6 +512,9 @@
         </li>
       </ul>
     </div>
+    <div class="btnquestion">
+      <a href="/cuestionario" class="btn btn-primary">Ir al cuestionario</a>
+    </div>
   </section>
 
   <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
@@ -505,7 +522,7 @@
       <use xlink:href="#bootstrap"></use>
     </svg>
   </a>
-  <span class="text-muted">© 2021 Company, Inc</span>
+  <span class="text-muted">© 2022 Company, Inc</span>
   </div>
 
   <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
