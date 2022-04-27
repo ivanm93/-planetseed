@@ -15,15 +15,17 @@
        margin-left: 80px;
 }
 
-.card{
+
+.cajasFlex {
+  display:inline-flex;
+  flex-wrap: wrap
+  }
+  .card{
     width: 18rem;
     margin: 30px;
 
 }
-.contenedor{
-  display: flex;
-  justify-content:space-between;
-}
+
 
 .cerrar{
     text-decoration: none;
@@ -74,3 +76,10 @@ hr{
   margin: auto;
 
 }
+.btnquestion{
+  width: 750px;
+  margin: auto;
+  text-align:end;
+}
+
+

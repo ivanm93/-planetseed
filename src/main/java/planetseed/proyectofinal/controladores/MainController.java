@@ -5,9 +5,11 @@
  */
 package planetseed.proyectofinal.controladores;
 
+import static java.lang.System.console;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -36,7 +38,9 @@ public class MainController {
     }
     
        @GetMapping("/resumen")
-     public String Resumen(){
+     public String Resumen(ModelMap modelo, @RequestParam(required = false) Integer valor){
+        modelo.put("valor", valor);
+        
         return "resumen.html";
     }
     
