@@ -46,9 +46,10 @@
 
 .position{
 position: absolute;
-top: 700px;
+margin-top: 500px;
 text-align: center;
 left: 100px;
+color: white;
 
 }
 
@@ -60,4 +61,16 @@ left: 100px;
 }
 .imagen{
   width: 750px;
+}
+
+hr{
+  width: 100%;
+    height: 10px !important;
+    margin: 40px 0 25px;
+    border: none;
+    background-color: var(--color-elements-one);
+}
+.img-fluid{
+  margin: auto;
+
 }
