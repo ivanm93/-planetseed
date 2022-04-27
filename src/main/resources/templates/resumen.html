@@ -1,134 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="/styles/style.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+ 
+  <link href="/styles/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/images/logo1">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/images/logo1">
 
-    <title>Planetseed</title>
+  <title>Planetseed</title>
 </head>
+
 <body>
-     <!-- iconos de footer -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="bootstrap" viewBox="0 0 118 94">
-          <title>Bootstrap</title>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
-        </symbol>
-        <symbol id="facebook" viewBox="0 0 16 16">
-          <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
-        </symbol>
-        <symbol id="instagram" viewBox="0 0 16 16">
-            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
-        </symbol>
-        <symbol id="twitter" viewBox="0 0 16 16">
-          <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
-        </symbol>
-      </svg>
+  <!-- iconos de footer -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="bootstrap" viewBox="0 0 118 94">
+      <title>Bootstrap</title>
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z">
+      </path>
+    </symbol>
+    <symbol id="facebook" viewBox="0 0 16 16">
+      <path
+        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
+      </path>
+    </symbol>
+    <symbol id="instagram" viewBox="0 0 16 16">
+      <path
+        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+      </path>
+    </symbol>
+    <symbol id="twitter" viewBox="0 0 16 16">
+      <path
+        d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
+      </path>
+    </symbol>
+  </svg>
 
-                <!-- Navegador -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Planetseed</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/perfil">Perfil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/arbol">Arbol</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/contenido">Contenido</a>
-              </li>
-             
-            </ul>
-            <div class="d-flex">
-              <a class="cerrar" href="/">cerrar sesion</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-          <!-- resumen de temas-->
+  <!-- Navegador -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Planetseed</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/perfil">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/arbol">Arbol</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/contenido">Contenido</a>
+          </li>
 
-          <!-- resumen de eolica -->
-        <section id="energiaeolica">
-        <div class="position">                  
-        <h1 >¿Qué es la energía eólica? La importancia del viento como renovable</h1>
-        </div>
-          <img src="https://www.bbva.com/wp-content/uploads/2021/04/energía_eolica_apertura-e1617804810829.jpg" alt="energía_eolica_apertura-viento-sostenibilidad-renovable-no contaminante-fuentes-combustibles" title="energía_eolica_apertura-viento-sostenibilidad-renovable-no contaminante-fuentes-combustibles" class="img-fluid">          <!-- imagen banner -->
-            
-          <div class="texto">
-            <h2>  Origen de la energía eólica</h2>
-             <p> La utilización del viento como recurso energético se remonta a miles de años, de ahí que la energía eólica sea madura. Su uso iba destinado a propulsar los barcos, bombear el agua o moler el grano gracias a los tradicionales molinos de viento hasta bien entrado el siglo XIX. Fueron los pobladores del Medio Oriente quienes llevaron esta idea a Europa, lo que permitió que los habitantes de los Países Bajos adaptaran el molino de viento para drenar lagos y pantanos en el delta del río Rin. Esta tecnología llegó hasta Estados Unidos con la migración de finales del siglo XVIII y principios del XIX, sirviendo no solo como vehículo para moler el grano sino también como recurso para generar electricidad destinada a los hogares y la industria.</p> 
-             <p> En la segunda mitad del siglo XIX apareció el popular molino multipala americano, cuyas características se utilizarían para el diseño de los generadores eólicos actuales. En 1887, el científico estadounidense Charles F. Brush (1849-1929) construyó la primera turbina eólica para la generación de electricidad, que tenía un diámetro de rotor de 17 metros y 144 palas de rotor hechas de madera de cedro.</p>     
-             <p> El científico danés Poul la Cour (1846-1908) fue quien más tarde descubrió que las turbinas eólicas con pocas palas de rotor son más eficientes para la producción de electricidad que las turbinas de palas múltiples, ya que en las primeras se logra una velocidad de rotación mucho mayor que en las del tipo construido por Brush. En 1899, diseñó lo que puede calificarse como el primer generador eólico moderno.</p>
-             <img src="https://www.bbva.com/wp-content/uploads/2021/04/energía_eolica_interior1-1024x629.jpg" alt="energía_eolica_interior1-molino-viento-campo-sostenibilidad-fuente" title="energía_eolica_interior1-molino-viento-campo-sostenibilidad-fuente" class="imagen"><!-- imagen centrada -->
-            </div>
-            
-            <div class="texto">
-              <h2>Mirando al futuro</h2>
-             <p>Las previsiones apuntan a que cuando finalice el 2020, la capacidad de generación de energía eólica habrá aumentado a pesar de la crisis por el COVID-19. Se espera que se instalen 71,3 GW, lo que supondría una disminución del 6% en el primer trimestre de 2020 con respecto a las previsiones anteriores al coronavirus.</p>  
-             <p>En cuanto a reducción de gases de efecto invernadero a la atmósfera en 2019, las emisiones globales relacionadas con la energía se estabilizaron en torno a las 33 gigatoneladas (Gt). El crecimiento de las energías renovables en la generación de electricidad en las economías avanzadas supuso un ahorro de 130 Megatoneladas (Mt) de emisiones de CO2, siendo la energía eólica la que aglutina la mayor parte del aumento, con una producción que se expandió un 12% con respecto a los niveles de 2018.</p> 
-            
-            <h2>Objetivo: combatir el cambio climático</h2> 
-            <p> Con estas cifras, ¿se alcanzarán los objetivos del Acuerdo de París? Según Ben Backwell, CEO de GWEC, “Si queremos tener alguna posibilidad de alcanzar nuestros objetivos del Acuerdo de París y permanecer en una vía de 1,5 ° C, necesitamos instalar al menos 100 GW de energía eólica anualmente durante la próxima década, y esto debe aumentar a 200 GW anualmente después de 2030 y más allá”, ha asegurado.</p>
-             <p>  Es por ello que la Agencia Internacional de Energías Renovables (IRENA) y el Consejo Global de Energía Eólica (CWEC), han firmado un acuerdo de cooperación para unir esfuerzos destinados a la adopción y despliegue de la energía eólica y renovable en todo el mundo para cumplir con los Acuerdos de París y contribuir a la descarbonización del planeta. Para ello, es necesaria la adopción de cambios en las políticas a desarrollar así como la cooperación a nivel internacional.</p>
-            <p> Las tecnologías renovables como la energía eólica terrestre y marina, así como las medidas de eficiencia energética, pueden reducir en más de un 90% la emisiones de CO2 necesarias para alcanzar los objetivos de 2050, generar puestos de trabajo y reducir con el aumento de la capacidad de energía eólica el coste de la electricidad.</p>
-            </div>
-
-          <a href="/cuestionario" class="btn btn-primary">Ir al cuestionario</a>
-        </section>
-
-          <!-- reforestacion -->
-          <section id="reforestacion">
-
-          </section>
-          <!-- medidas contra incendios -->
-          <section id="reforestacion">
-
-          </section>
-          <!-- hidrocultivo -->
-          <section id="reforestacion">
-
-          </section>
-          <!-- energia solar -->
-          <section id="reforestacion">
-
-          </section>
-          <!-- fauna -->
-          <section id="reforestacion">
-
-          </section>
-          <!-- flora -->
-          <section id="reforestacion">
-
-          </section>
-          <!-- reciclaje -->
-          <section id="reforestacion">
-
-          </section>
-          <!-- planta tu arbol -->
-
-
-          <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-          </a>
-          <span class="text-muted">© 2021 Company, Inc</span>
-        </div>
-    
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-          <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-          <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-          <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
         </ul>
-      </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <div class="d-flex">
+          <a class="cerrar" href="/">cerrar sesion</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- resumen de temas-->
+
+  <!-- resumen de eolica -->
+  <section id="energiaeolica">
+    <div class="position">
+      <h1>¿Qué es la energía eólica? La importancia del viento como renovable</h1>
+    </div>
+    <img src="https://www.bbva.com/wp-content/uploads/2021/04/energía_eolica_apertura-e1617804810829.jpg"
+      alt="energía_eolica_apertura-viento-sostenibilidad-renovable-no contaminante-fuentes-combustibles"
+      title="energía_eolica_apertura-viento-sostenibilidad-renovable-no contaminante-fuentes-combustibles"
+      class="img-fluid"> <!-- imagen banner -->
+
+    <div class="texto">
+      <h2> Origen de la energía eólica</h2>
+      <p> La utilización del viento como recurso energético se remonta a miles de años, de ahí que la energía eólica sea
+        madura. Su uso iba destinado a propulsar los barcos, bombear el agua o moler el grano gracias a los
+        tradicionales molinos de viento hasta bien entrado el siglo XIX. Fueron los pobladores del Medio Oriente quienes
+        llevaron esta idea a Europa, lo que permitió que los habitantes de los Países Bajos adaptaran el molino de
+        viento para drenar lagos y pantanos en el delta del río Rin. Esta tecnología llegó hasta Estados Unidos con la
+        migración de finales del siglo XVIII y principios del XIX, sirviendo no solo como vehículo para moler el grano
+        sino también como recurso para generar electricidad destinada a los hogares y la industria.</p>
+      <p> En la segunda mitad del siglo XIX apareció el popular molino multipala americano, cuyas características se
+        utilizarían para el diseño de los generadores eólicos actuales. En 1887, el científico estadounidense Charles F.
+        Brush (1849-1929) construyó la primera turbina eólica para la generación de electricidad, que tenía un diámetro
+        de rotor de 17 metros y 144 palas de rotor hechas de madera de cedro.</p>
+      <p> El científico danés Poul la Cour (1846-1908) fue quien más tarde descubrió que las turbinas eólicas con pocas
+        palas de rotor son más eficientes para la producción de electricidad que las turbinas de palas múltiples, ya que
+        en las primeras se logra una velocidad de rotación mucho mayor que en las del tipo construido por Brush. En
+        1899, diseñó lo que puede calificarse como el primer generador eólico moderno.</p>
+      <img src="https://www.bbva.com/wp-content/uploads/2021/04/energía_eolica_interior1-1024x629.jpg"
+        alt="energía_eolica_interior1-molino-viento-campo-sostenibilidad-fuente"
+        title="energía_eolica_interior1-molino-viento-campo-sostenibilidad-fuente" class="imagen">
+      <!-- imagen centrada -->
+    </div>
+
+    <div class="texto">
+      <h2>Mirando al futuro</h2>
+      <p>Las previsiones apuntan a que cuando finalice el 2020, la capacidad de generación de energía eólica habrá
+        aumentado a pesar de la crisis por el COVID-19. Se espera que se instalen 71,3 GW, lo que supondría una
+        disminución del 6% en el primer trimestre de 2020 con respecto a las previsiones anteriores al coronavirus.</p>
+      <p>En cuanto a reducción de gases de efecto invernadero a la atmósfera en 2019, las emisiones globales
+        relacionadas con la energía se estabilizaron en torno a las 33 gigatoneladas (Gt). El crecimiento de las
+        energías renovables en la generación de electricidad en las economías avanzadas supuso un ahorro de 130
+        Megatoneladas (Mt) de emisiones de CO2, siendo la energía eólica la que aglutina la mayor parte del aumento, con
+        una producción que se expandió un 12% con respecto a los niveles de 2018.</p>
+
+      <h2>Objetivo: combatir el cambio climático</h2>
+      <p> Con estas cifras, ¿se alcanzarán los objetivos del Acuerdo de París? Según Ben Backwell, CEO de GWEC, “Si
+        queremos tener alguna posibilidad de alcanzar nuestros objetivos del Acuerdo de París y permanecer en una vía de
+        1,5 ° C, necesitamos instalar al menos 100 GW de energía eólica anualmente durante la próxima década, y esto
+        debe aumentar a 200 GW anualmente después de 2030 y más allá”, ha asegurado.</p>
+      <p> Es por ello que la Agencia Internacional de Energías Renovables (IRENA) y el Consejo Global de Energía Eólica
+        (CWEC), han firmado un acuerdo de cooperación para unir esfuerzos destinados a la adopción y despliegue de la
+        energía eólica y renovable en todo el mundo para cumplir con los Acuerdos de París y contribuir a la
+        descarbonización del planeta. Para ello, es necesaria la adopción de cambios en las políticas a desarrollar así
+        como la cooperación a nivel internacional.</p>
+      <p> Las tecnologías renovables como la energía eólica terrestre y marina, así como las medidas de eficiencia
+        energética, pueden reducir en más de un 90% la emisiones de CO2 necesarias para alcanzar los objetivos de 2050,
+        generar puestos de trabajo y reducir con el aumento de la capacidad de energía eólica el coste de la
+        electricidad.</p>
+    </div>
+
+    <a href="/cuestionario" class="btn btn-primary">Ir al cuestionario</a>
+  </section>
+
+  <!-- reforestacion -->
+  <section id="reforestacion">
+
+  </section>
+  <!-- medidas contra incendios -->
+  <section id="reforestacion">
+
+  </section>
+  <!-- hidrocultivo -->
+  <section id="reforestacion">
+
+  </section>
+
+  <!-- energia solar -->
+  <section id="energiasolar">
+    <div class="position">
+      <h1>¿Qué es y cómo funciona la energía solar? </h1>
+    </div>
+    <img src="/images/solar" alt="" title="" class="img-fluid"> <!-- imagen banner -->
+    <div class="texto">
+      <hr>
+
+      <h2> ¿qué es la energía solar?</h2>
+      <p>energía solar es aquella generada por el Sol y que viaja a través de radiaciones para llegar a la Tierra. Es
+        una energía renovable la cual el ser humano tiene intención de obtenerla de manera eficiente para su uso y
+        aprovechamiento mediante diferentes tecnologías que han ido evolucionando con el paso del tiempo.</p>
+      <p>Este tipo de energía es inagotable y muy abundante y por ello además de ser una fuente renovable, es una
+        energía limpia y supone una alternativa a otros tipos de energía no renovables como la energía fósil o la
+        energía nuclear.</p>
+
+      <hr>
+
+      <h2>¿Cómo funciona la energía solar?</h2>
+      <p> A grandes rasgos, una vez llegada a la superficie terrestre, la energía solar necesita una instalación
+        fotovoltaica para convertirse en electricidad. La instalación capta la radiación mediante celdas fotovoltaicas y
+        la transforma en corriente. Este es el uso más común de la misma.</p>
+      <p> Pero ¿qué pasa con la energía antes de llegar a la Tierra? Ella se genera mediante reacciones de fusión que se
+        producen en el sol. La radiación viaja hacia la Tierra mediante ondas electromagnéticas y, posteriormente, puede
+        ser aprovechada para su uso e incluso almacenamiento.</p>
+
+      <hr>
+
+      <h2> ¿Cómo aprovechar esta energía?</h2>
+      <p> La energía solar se puede aprovechar en forma de energía térmica o energía fotoeléctrica, para su consumo
+        posterior allá donde se necesite. Cuando se trata de energía térmica obtenemos calor para calentar un fluido.
+      </p>
+      <p> El elemento encargado de captar la radiación solar y transformarla en energía útil es el panel solar. Los
+        paneles solares pueden ser de distintos tipos dependiendo del mecanismo escogido para el aprovechamiento de la
+        energía solar.</p>
+      <p> La energía solar térmica consiste principalmente en aprovechar la energía que genera el Sol hacia un medio que
+        sea portador de calor, que generalmente suele ser agua o aire en estos casos. Este tipo de energía solar es
+        menor en cuanto a su aprovechamiento y también en su producción que la energía fotovoltaica pero se está
+        avanzando mucho en los últimos años y se espera que tenga un gran impacto a corto plazo a nivel mundial positivo
+        y también en España a nivel ecológico y económico. Te explicamos las diferencias entre la energía solar térmica
+        y la energía solar fotovoltaica. </p>
+
+      <hr>
+
+      <h2>¿Cuáles son las aplicaciones de la energía solar térmica?</h2>
+      <p> Una de las ventajas de la energía solar es que tiene varias aplicaciones. Entre ellas podemos encontrar en
+        este tipo de energía también existe la posibilidad de generar energía para un hogar. Hoy en día los avances
+        tecnológicos permiten calentar agua con la radiación solar hasta producir vapor y posteriormente obtener dicha
+        electricidad electricidad.</p>
+
+      <hr>
+
+      <h2>¿Cómo se aprovecha la fotovoltaica?</h2>
+      <p>Este tipo de energía consiste en la transformación directa de la radiación que transmite el Sol en la energía
+        eléctrica. Esta transformación en energía eléctrica se consigue aprovechando las propiedades de los materiales
+        por los que está formada la placa solar mediante células fotovoltaicas que contiene.</p>
+      <p>La mayor parte de los paneles fotovoltaicos están hechos a base de silicio en su mayoría para su posible
+        transformación. Cuando la luz del sol incide en una de las caras de la célula solar es capaz de generar
+        corriente eléctrica. El proceso de fabricación de las placas es laborioso y a la vez complicado por el silicio
+        que contienen.</p>
+      <p> Mediante dicho proceso se labora los conocidos lingotes de silicio que posteriormente se cortan en células
+        fotovoltaicas, que son enriquecidas con Boro y Fósforo. En la búsqueda de perfeccionar y bajar los costos para
+        el aprovechamiento de la energía fotovoltaica, actualmente se están investigando con otros materiales de mayor
+        rendimiento y más económicos.</p>
+      <p> Además de el "método tradicional", podemos hablar también de una generación pasiva. Infórmate sobre ella en
+        nuestro artículo sobre energía solar pasiva.</p>
+
+      <hr>
+
+      <div class="youtube-player imagen" data-id="MFn7jHcrrdU">
+        <iframe src="https://www.youtube.com/embed/MFn7jHcrrdU?autoplay=1&amp;rel=0" frameborder="0" allowfullscreen="1"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture">
+
+        </iframe>
+      </div>
+
+      <hr>
+
+      <h2>¿Cuáles son las aplicaciones de la energía fotovoltaica?</h2>
+      <p> La principal aplicación de las instalaciones de energía solar fotovoltaicas es meramente la producción de
+        electricidad a partir de la radiación solar. Este tipo de aplicación se puede generar a gran escala o a pequeña
+        escala para el consumo y autoconsumo residencial, refugios etc.</p>
+      <p> Principalmente se diferencian dos tipos de instalaciones fotovoltaica:</p>
+
+      <p> De autoconsumo - instalaciones individuales en los hogares</p>
+      <p> Huertos solares - para la producción a gran escala y la comercialización de la energía obtenida.</p>
+    </div>
+  </section>
+  <!-- fauna -->
+  <section id="fauna">
+    <div class="position">
+      <h1>10 consejos para la protección animal</h1>
+    </div>
+    <img src="https://www.fundacionaquae.org/wp-content/uploads/2018/10/proteger-a-los-animales.jpg" alt="" title=""
+      class="img-fluid "> <!-- imagen banner -->
+    <div class="texto">
+
+      <h2> 10 acciones para la protección y el cuidado de los animales</h2>
+      <p>1.<strong>Prohibir la caza de animales</strong>. Quizás una de las más importantes para llevar a cabo la labor
+        de protección animal. Porque la cacería ha puesto a muchas especies en peligro. Si se trabaja para erradicar la
+        caza furtiva de animales, la amenaza de especies derivada de ella resultaría completamente evitable.</p>
+      <hr>
+      <p>2.<strong> Evitar la deforestación de bosques</strong>. Los bosques dan cobijo la biodiversidad que vive en
+        ellos. La tala de árboles está causando estragos en las especies animales. De hecho, muchas de ellas no
+        sobreviven. Otras, en cambio, tienen que migrar hacia entornos o hábitats de los que no son naturales. Esto es
+        lo que está ocurriendo con los osos polares, que han tenido que buscar comida fuera de su entorno natural.</p>
+      <hr>
+      <p>3. <strong>Delimitar las áreas protegidas y reservas naturales</strong>. En su tarea por la protección y el
+        cuidado animal, los gobiernos deben actuar para marcar las zonas especialmente vulnerables.</p>
+      <hr>
+      <p>4.<strong>Evitar la contaminación de los recursos naturales</strong>. La naturaleza es la fuente de recursos
+        más importante del mundo animal. Así, la protección de los entornos naturales se vuelve esencial para crear un
+        mundo más habitable y sostenible.</p>
+      <hr>
+      <p>5.<strong>Promover planes para la reproducción en cautiverio</strong>. La reproducción controlada es una forma
+        muy efectiva de ayudar a ciertas especies. De esta manera, una vez alcanzada una población razonable, se podría
+        reintroducir una especie amenazada en las zonas donde vivía históricamente.</p>
+      <hr>
+      <p>6.<strong>Contribuir a la disminución de la tala de árboles con el reciclaje</strong>. Reciclar es una manera
+        muy fácil de ser sostenible. No hay más que seguir a las instrucciones oficiales para llevar a cabo un reciclaje
+        adecuado.</p>
+      <hr>
+      <p>7.<strong>Respetar las áreas protegidas y reservas naturales</strong> . En primer lugar, sigue todas las
+        indicaciones que se te den cuando asistas a un paseo. Pero si vas a un lugar que no tiene mucha señalización,
+        actúa con sentido común, buscando siempre la protección del entorno y los animales que viven en él.</p>
+      <hr>
+      <p>8.<strong>Comprar con responsabilidad</strong>. Desde la perspectiva individual, la protección animal comienza
+        con el momento de compra. Al no comprar productos hechos de animales en peligro de extinción o partes de los
+        mismos, puedes hacer que el tráfico ilegal de vida silvestre no sea un negocio lucrativo.</p>
+      <hr>
+      <p>9.<strong>Restaurar los ecosistemas</strong>. La destrucción de hábitats es la principal amenaza para el 85% de
+        todas las especies en riesgo y en peligro de extinción. Son datos de la Unión Internacional para la Conservación
+        de la Naturaleza. Puedes ayudar a reducir este peligro plantando árboles nativos, restaurando las tierras
+        pantanosas o limpiando playas en tu área.</p>
+      <hr>
+      <p>10.<strong>Hacer donaciones</strong>. Cuando visites zoológicos acreditados y reservas naturales locales, paga
+        el precio de entrada recomendado. Tus donaciones ayudan a mantener estas áreas vitales de conservación.</p>
+      <hr>
+      <p>Pero más allá de estas acciones, hay muchas personas que han decidido dar un paso más en lo que se refiere al
+        cuidado animal. Porque han entendido que animales y humanos no pueden vivir el uno sin el otro. Y que cada
+        pérdida es un daño irreparable para la vida, para los hábitats y para los diferentes ecosistemas del planeta.
+        Por eso, han enfocado su vida al cuidado de los animales, y han optado por una de las múltiples opciones
+        laborales que existen hoy en día. Hay muchas y variadas, y en todas ellas los animales son, a la postre, los
+        grandes beneficiados. La gran diferencia entre muchas de ellas radica únicamente en el lugar en dónde se
+        ubicaría el trabajo a realizar: si en la urbe o en el medio libre y salvaje.</p>
+      <p>Pero hay una cosa que sí iguala a todas ellas: y es el amor que quienes se dedican a ellas profesan por la
+        naturaleza. Porque estar en contacto con las especies y garantizar el cuidado animal es una elección única y
+        maravillosa, y una oportunidad clara de contribuir a su conservación. Y es que a pesar de que el planeta (y el
+        ser humano) cada vez está poniendo las cosas más complicadas para la supervivencia de muchas especies de
+        animales; ayudar a la preservación de la fauna es una oportunidad vital insuperable, auténtica y trepidante.
+      </p>
+    </div>
+  </section>
+  <!-- flora -->
+  <section id="flora">
+    <div class="position">
+      <h1>Por qué es importante cuidar el medio ambiente</h1>
+    </div>
+    <img src="/images/flora" alt="" title="" class="img-fluid "> <!-- imagen banner -->
+    <div class="texto">
+      <hr>
+      <p>Hace tiempo que los científicos han probado que si seguimos a este ritmo de consumo de recursos naturales y de
+        contaminación ambiental no dejaremos un mundo saludable a las futuras generaciones. Los problemas ambientales
+        han empeorado en las últimas décadas, aunque también han mejorado las acciones para subsanar los daños generados
+        al medio ambiente. En este artículo de EcologíaVerde te contamos por qué es importante cuidar el medio ambiente
+        y cómo conseguirlo a través de un testamento o legado solidario para poder dejarlo a las futuras generaciones.
+      </p>
+
+      <h2> Por qué es importante cuidar el medio ambiente – razones para su conservación</h2>
+      <p>Para empezar, ¿qué es el medio ambiente? De modo sencillo y resumido, podemos decir que el medio ambiente es el
+        espacio en el que confluyen todos los elementos físicos, químicos y biológicos que interactúan y se relacionan
+        de un modo u otro. Por tanto, es el espacio, así como todos los elementos que lo conforman, en el que puede
+        haber vida tal y como la conocemos.</p>
+
+      <p> <strong>Entre las principales razones para cuidar el medio ambiente podemos destacar las siguientes:</strong>
+      </p>
+      <ul>
+        <li>
+          Asegurar la supervivencia de la especie humana.
+        </li>
+        <li>
+          Favorecer la supervivencia y evolución del resto de seres vivos.
+        </li>
+        <li>
+          Permitir que haya equilibrio ecológico.
+        </li>
+        <li>
+          No hay un planeta B en el que podamos vivir como en la Tierra, por lo que es nuestro único hogar y el de las
+          futuras generaciones.
+        </li>
+      </ul>
+      <p>Así,<strong>la importancia de conservar el medio ambiente es vital</strong>, ya que la propia importancia que
+        este tiene para los seres vivos es cuestión de vida.</p>
+
+      <img src="https://t1.ev.ltmcdn.com/es/posts/1/5/2/por_que_es_importante_cuidar_el_medio_ambiente_2251_600.jpg"
+        alt="Por qué es importante cuidar el medio ambiente" width="600" height="401">
+
+      <h2>¿Qué es el legado solidario?</h2>
+      <p>El testamento o legado solidario es una manera de contribuir con nuestra generosidad hacia las causas más
+        necesitadas del planeta. Dejando un porcentaje de tu herencia (que puede ser de hasta el 100% si no tienes
+        herederos forzosos), un bien dinerario (dinero, acciones, seguro de vida, fondo de inversión…), o un bien no
+        dinerario (inmueble, plaza de garaje, joyas…), en tu testamento a favor de una causa solidaria, garantizamos que
+        el trabajo de las entidades sin ánimo de lucro por un futuro mejor para todos, continúe cuando tú ya no estés.
+        Hacer testamento es un acto de responsabilidad que permite simplificar los trámites de tus herederos y, además,
+        puedes elegir a una o varias ONG para la donación, asegurando que parte de tu patrimonio contribuirá a mejorar o
+        salvar la vida de las personas más vulnerables, así como proteger el medio ambiente y toda su biodiversidad.</p>
+
+      <h2>Cómo hacer un legado solidario</h2>
+      <p> En España tenemos poca costumbre de hacer testamento y solemos pensar que es un proceso lento, complicado y
+        muy costoso. Pero no es la realidad. Hacer un testamento es sencillo y cuesta alrededor de 45 euros. Se trata de
+        un trámite reversible en cualquier momento pero que, sea cual sea el importe de la donación, puede ayudar a los
+        más necesitados y a promover la solidaridad entre todos los ciudadanos del mundo. Se gestiona a través de un
+        notario y la ONG que elijas puede guiarte en el proceso si quieres.</p>
+      <p>Además, todas las entidades sin ánimo de lucro que participan en la iniciativa están reconocidas de utilidad
+        pública y no se someten al impuesto de sucesión, por lo que todo lo recibido a través del legado solidario será
+        íntegramente utilizado para ayudar en la causa social elegida. Cualquiera de ellas te asesorará de manera
+        gratuita, confidencial y sin compromiso, para que puedas tomar tú la mejor decisión.</p>
+      <p>¿Qué ocurrirá con mis herederos? Esta acción no solo no perjudica los derechos de los herederos, sino que
+        contribuye a mejorar la vida y la sociedad de futuras generaciones.</p>
+      <p> El futuro es cosa del presente. Es asunto de todos.</p>
+
+      <img loading="lazy" src="https://t2.ev.ltmcdn.com/es/posts/1/5/2/como_hacer_un_legado_solidario_2251_2_600.jpg"
+        alt="Por qué es importante cuidar el medio ambiente - Cómo hacer un legado solidario" width="600" height="400">
+
+    </div>
+  </section>
+  <!-- reciclaje -->
+  <section id="reciclaje">
+    <div class="position">
+      <h1>¿Por qué es importante Reciclar?</h1>
+    </div>
+    <img src="/images/reciclaje.jpg" alt="" title="" class="img-fluid "> <!-- imagen banner -->
+    <div class="texto">
+      
+      <h2>La importancia de reciclar</h2>
+      <p>Reciclar es una de las alternativas utilizadas para la reducción del volumen de residuos sólidos. Se trata de un proceso que consiste básicamente en volver a utilizar materiales que fueron desechados y que aun son aptos para elaborar otros productos o refabricar los mismos. Ejemplos de materiales  reciclables son los metales, el vidrio, el plástico y el papel.</p>
+
+      <h2>¿Cómo diferencio mis residuos?</h2>
+
+      <p>Los residuos se clasifican en dos grandes grupos:</p>
+      <ul>
+        <li>
+          ORGANICOS: todos los restos de verduras, frutas, poda, hojas secas, etc.
+        </li>
+        <li>
+          INORGANICOS: todo tipo de papel, cartón, vidrio, plásticos y metal, etc.
+        </li>
+      </ul>
+    <h2><strong>Fundamentos para reciclar</strong></h2>  
+ 
+   <p>TRES R: Una forma de pensar con respecto a los residuos es la que propone la estrategia de las “3R”: reducir-reutilizar-reciclar</p>
+
+    <p> <strong>Reducir</strong> 
+      Es decir evitar que se genere la basura, comprando y utilizando los productos de la manera correcta.
+      Tenemos que reducir el volumen de los productos que consumimos, pensando que para la fabricación de estas cosas necesitamos materias primas, agua, energía, minerales, etc.</p>
+     
+    <p><Strong>Reutilizar</Strong> 
+
+      Es darle mayor utilidad a las cosas sin la necesidad de destruirlas. Muchos productos pueden ser usados varias veces, extendiendo su vida útil. Hay que tenerlos en cuenta cuando hacemos las compras, ya que esto hace que generemos menos residuos.</p> 
+     <p><strong>Algunas acciones para reutilizar los residuos son:</strong></p>
+      <ul>
+       <li>
+        - Usar envases retornables.
+       </li>
+       <li>
+        - Usar las hojas de papel por ambos lados.
+       </li>
+     </ul>
+
+    <p><strong>Reciclar</strong> 
+
+      Es devolver al ciclo productivo los residuos. Reciclando convertimos a los materiales recuperados de los residuos en valorados recursos.</p>
+     
+     <p><strong>Los beneficios del reciclado son muchos, pero podemos organizarlos en dos principales aspectos:</strong></p> 
+      
+     <ul>
+       <li>
+         Cuida el planeta: Ya que promueve la conservación de los recursos naturales como el agua, el suelo, los minerales, y evita la contaminación que se produce durante su extracción y durante la elaboración de productos (reduce el uso de energía y la emisión de los gases de efecto invernadero, entre otros).
+       </li>
+       <li>
+        Genera trabajo: Contribuye a la creación de puestos de trabajo y al desarrollo económico alrededor del negocio de la recolección y el procesamiento de los materiales.
+       </li>
+       <li>
+        Es importante que comencemos a tomar conciencia y cuidar el planeta, ya que sin duda las pequeñas acciones contribuyen a grandes cambios.
+       </li>
+     </ul>
+    </div>
+  </section>
+  <!-- planta tu arbol -->
+  <section id="plantatuarbol">
+    <div class="position">
+      <h1>¿como plantar tu arbo?</h1>
+    </div>
+    <img src="/images/arbol" alt="" title="" class="img-fluid "> <!-- imagen banner -->
+    <div class="texto">
+     <hr>
+     <p>Armamos esta pequeña guía para que puedas plantar correctamente un árbol por tu cuenta. Antes de hacerlo tomate un momento para elegir la especie y tomar ciertos recaudos. <strong>Buena suerte!</strong></p>  
+      
+     <ul>
+       <li>
+         <h4>El primer paso</h4>
+         es asesorarse sobre que especie es correcto plantar en su región y considerar el espacio futuro que ocupará el árbol.
+       </li>
+       <!-- aca va la linea de separacion -->
+       <li>
+         <h4>segundo </h4>
+         Es importante que si ya tiene en su poder el árbol, y este dentro de una bolsa, a este le eche agua, para que de esta manera continúe compactada la tierra en las raíces. Esto debe hacerse una noche antes.
+       </li>
+       <!-- aca va la linea de separacion -->
+       <li>
+         <h4>tercer </h4>
+         El tamaño del hueco y hoyo, debe ser al doble en ancho y hondo con respecto al árbol. Ejemplo: Si tu árbol se encuentra dentro de una bolsa de 15 centímetros de diámetro por 20 de largo, entonces deberá cavar un hueco de 30 centímetros de ancho por 40 centímetros de profundidad.
+         
+
+        </li>
+       <!-- aca va la linea de separacion -->
+       <li>
+       <h4>cuarto </h4>
+       Ahora que está listo el hoyo para plantar el árbol, deberá cuidadosamente cortar la bolsa (maceta descartable) que contiene a su árbol, y evitar romper el pan de tierra que contiene a las raíces.
+      </li> 
+      <!-- aca va la linea de separacion -->
+        <li>
+          <h4>quinto </h4>
+          Procede a plantar el árbol, y vigila que el cuello de la raíz (zona donde ésta se une al tallo) no quede enterrado sino a ras de suelo.ocede a plantar el árbol, y vigila que el cuello de la raíz (zona donde ésta se une al tallo) no quede enterrado sino a ras de suelo. Si colocan tierra mejorada o abono (sugerimos orgánico) se debe poner aproximadamente unos 5-10 centímetros en la base del hoyo antes de plantar el árbol.
+        </li>
+        <!-- aca va la linea de separacion -->
+        <li>
+          <h4>sexto </h4>
+          Debemos tratar que el árbol quede recto. Podemos colocar un tutor (recomendado en parques y veredas) a fin de proteger el árbol, señalizarlo y ayudarlo a que crezca hacia arriba. Puede colocarse 1,2 o 3 estacas dependiendo del tamaño del árbol y se recomienda atarlos con cinta de forma bien ajustada.
+        </li> 
+        <!-- aca va la linea de separacion -->
+        <li>
+          <h4>septimo </h4>
+          Procede a rellenar el hueco con el árbol ubicado en el hoyo. Es necesario que la tierra que servirá para rellenar, este totalmente libre de basura o piedras. Si tiene tierra en forma de terrón deben romperse.
+        </li> 
+        <!-- aca va la linea de separacion -->
+        <li>
+          <h4>octavo </h4>
+          Con el pie o el mango de la pala compacte suevamente la tierra recién colocada y realice una olla alrededor que permita la retención de agua de lluvia o riego.
+        </li> 
+        <!-- aca va la linea de separacion -->
+        <li>
+          <h4>noveno </h4>
+          Riega abundantemente.
+        </li>
+        <!-- aca va la linea de separacion -->
+        <li>
+          <h4>ultimo paso</h4>
+          Recuerda regarlo durante el primer año sobre todo en verano, eliminar la maleza que pueda sacarle humedad, protegerlo de las cortadoras de césped y las hormigas.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+    <svg class="bi" width="30" height="24">
+      <use xlink:href="#bootstrap"></use>
+    </svg>
+  </a>
+  <span class="text-muted">© 2021 Company, Inc</span>
+  </div>
+
+  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+          <use xlink:href="#twitter"></use>
+        </svg></a></li>
+    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+          <use xlink:href="#instagram"></use>
+        </svg></a></li>
+    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+          <use xlink:href="#facebook"></use>
+        </svg></a></li>
+  </ul>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
