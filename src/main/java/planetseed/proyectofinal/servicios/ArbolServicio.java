@@ -37,7 +37,7 @@ public class ArbolServicio {
             a.setNombre(nombre);
             return arbolRepo.save(a);
         } else {
-            throw new ErrorServicio("No se ha encontrado el Árbol");
+            throw new ErrorServicio("No se ha encontrado el árbol");
         }
     }
     
@@ -49,7 +49,7 @@ public class ArbolServicio {
             a.setAlta(false);
             arbolRepo.save(a);
         } else {
-            throw new Exception("No se encontró el libro");
+            throw new Exception("No se ha encontrado el árbol");
         }
     }
     
@@ -60,7 +60,7 @@ public class ArbolServicio {
             Arbol a = respuesta.get();           
             arbolRepo.delete(a);
         } else {
-            throw new Exception("No se encontró el libro");
+            throw new Exception("No se ha encontrado el árbol");
         }
     }
     
