@@ -65,6 +65,7 @@ hr{
 }
 .imagen{
   width: 750px;
+  background-size: cover;
 }
 .img-fluid{
   margin: auto;
