@@ -119,6 +119,11 @@ public class UsuarioServicio implements UserDetailsService {
     public Usuario buscarPorEmail(String email) {
         return usuarioRepo.buscarPorEmail(email);
     }
+    
+    @Transactional(readOnly = true)
+    public List<Usuario> findAll() {
+        return usuarioRepo.findAll();
+    }
 
     public void validar(String nombre, String apellido, Integer edad, String email,
             String password) throws ErrorServicio {
