@@ -19,7 +19,25 @@
   width: 100%;
   height: auto;
   background-color: azure;
-  padding: 10px;
+  padding: 10px 0;
+}
+.arbol{
+  width: 800px;
+  height: 550px;
+  margin:10px auto;
+  text-align : center; 
+}
+
+.botonregar{
+  width: 800px;
+  margin: 10px auto;
+  text-align:right;
+}
+.video{
+  width: 100%;
+  height: auto;
+  background-color: #7fffd4;
+
 }
 /*contenido*/
 .cajasFlex {
@@ -29,27 +47,8 @@
   .card{
     width: 18rem;
     margin: 30px;
-}
-.position{
-  position: absolute;
-  margin-top: 500px;
-  text-align: center;
-  left: 100px;
-  color: white;
   }
-/*arbol*/
-.arbol{
-    width: 800px;
-    height: 550px;
-    background-color: #DAF7A6;
-    margin:10px auto;
-    text-align : center; 
-}
-.botonregar{
-  width: 800px;
-  margin: 10px auto;
-  text-align:right;
-}
+
 /*Resumen*/
 hr{
   width: 100%;
@@ -60,15 +59,23 @@ hr{
 }
 .texto{
   width: 750px;
-  margin: auto;
+  margin: 20px auto;
   text-align: left;
 }
+.position{
+  position: absolute;
+  top: 100px;
+  text-align: center;
+  left: 150px;
+  color: white;
+  }
 .imagen{
   width: 750px;
   background-size: cover;
 }
-.img-fluid{
-  margin: auto;
+.banner{
+  width: 100%;
+  text-align: center;
 }
 .btnquestion{
   width: 750px;
@@ -78,7 +85,7 @@ hr{
 /*Comunidad*/
 .usuario{
   width: 90%;
-  height: 200px;
+  height: auto;
   border: solid 1px black;
   margin: 30px auto;
   border-radius: 20px;
@@ -87,7 +94,31 @@ hr{
   width: 150px;
   border-radius: 70px;
    border: 2px solid #999;
-     margin-left: 80px;
+     margin: 20px 80px;
 }
+.verarbol{
+  margin: 10px;
+}
+/* Cuestionario */
+.seccionCuestionario{
+  background-color:#f2f2f2 ;
+  width: 100%;
 
+}
+.cuestionario{
+  width: 750px;
+margin: auto;
+align-items: center;
+}
+.izq{
+margin: 10px 60px;
+}
+.der{
+margin: 10px 100px;
+text-align: end;
+}
+.contenedor{
+  display: flex;
+  justify-content: space-between;
+}
 
