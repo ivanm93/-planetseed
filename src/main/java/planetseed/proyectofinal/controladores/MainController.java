@@ -49,8 +49,8 @@ public class MainController {
         return "cuestionario.html";
     }
     
-         @GetMapping("/arbol")
-    public String Arbol(){
-        return "arbol.html";
+             @GetMapping("/comunidad")
+    public String Comunidad(){
+        return "comunidad.html";
     }
 }

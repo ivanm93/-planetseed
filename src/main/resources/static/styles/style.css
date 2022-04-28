@@ -1,12 +1,13 @@
+/*General*/
+.cerrar{
+  text-decoration: none;
+}
+/*perfil, registro*/
 .formulario{
     max-width: 500px ;
     margin:auto ;
 }
-.imagenPerfil{
-
-
-}
-
+/*perfil*/
 .imagenPerfil img{
   
   width: 300px;
@@ -14,8 +15,13 @@
      border: 2px solid #999;
        margin-left: 80px;
 }
-
-
+.perfil{
+  width: 100%;
+  height: auto;
+  background-color: azure;
+  padding: 10px;
+}
+/*contenido*/
 .cajasFlex {
   display:inline-flex;
   flex-wrap: wrap
@@ -23,48 +29,28 @@
   .card{
     width: 18rem;
     margin: 30px;
-
 }
-
-
-.cerrar{
-    text-decoration: none;
-}
-
+.position{
+  position: absolute;
+  margin-top: 500px;
+  text-align: center;
+  left: 100px;
+  color: white;
+  }
+/*arbol*/
 .arbol{
     width: 800px;
     height: 550px;
     background-color: #DAF7A6;
     margin:10px auto;
-    text-align : center;
-   
+    text-align : center; 
 }
-
 .botonregar{
   width: 800px;
   margin: 10px auto;
   text-align:right;
 }
-
-.position{
-position: absolute;
-margin-top: 500px;
-text-align: center;
-left: 100px;
-color: white;
-
-}
-
-.texto{
-  width: 750px;
-  margin: auto;
-  text-align: left;
-
-}
-.imagen{
-  width: 750px;
-}
-
+/*Resumen*/
 hr{
   width: 100%;
     height: 10px !important;
@@ -72,14 +58,35 @@ hr{
     border: none;
     background-color: var(--color-elements-one);
 }
+.texto{
+  width: 750px;
+  margin: auto;
+  text-align: left;
+}
+.imagen{
+  width: 750px;
+}
 .img-fluid{
   margin: auto;
-
 }
 .btnquestion{
   width: 750px;
   margin: auto;
   text-align:end;
+}
+/*Comunidad*/
+.usuario{
+  width: 90%;
+  height: 200px;
+  border: solid 1px black;
+  margin: 30px auto;
+  border-radius: 20px;
+}
+.imgPerfil img {
+  width: 150px;
+  border-radius: 70px;
+   border: 2px solid #999;
+     margin-left: 80px;
 }
 
 
