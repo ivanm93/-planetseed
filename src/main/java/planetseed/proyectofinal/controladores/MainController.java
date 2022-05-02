@@ -47,8 +47,11 @@ public class MainController {
             return "login.html";
         }     
     }
-    
-    @GetMapping("/registro")
+     @GetMapping("/registro")
+    public String Registro(){
+        return "registro.html";
+    }
+    @PostMapping("/registro")
     public String registro(ModelMap modelo, @RequestParam(required = false) String nombre, 
             @RequestParam(required = false)String apellido, @RequestParam(required = false)Integer edad, 
             @RequestParam(required = false)String email, @RequestParam(required = false) String password, 
@@ -115,10 +118,15 @@ public class MainController {
         return "cuestionario.html";
     }
     
+     @GetMapping("/editarusuario")
+    public String EditarUsuario(){
+        return "editarusuario.html";
+    }
+    
     @GetMapping("/comunidad")
     public String comunidad(ModelMap modelo){
-        List<Usuario> usuarios = usuarioServicio.findAll();
-        modelo.addAttribute("usuarios", usuarios);
+        List<Usuario> listaUsuarios = usuarioServicio.findAll();
+        modelo.addAttribute("listaUsuarios", listaUsuarios);
         return "comunidad.html";
     }
     

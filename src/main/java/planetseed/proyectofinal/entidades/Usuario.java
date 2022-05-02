@@ -33,6 +33,9 @@ public class Usuario {
     private Integer edad;
     private String email;
     private String password;
+    private Integer puntos;
+    private String descripcion;
+    private Boolean alta;
     
     @OneToOne
     private Imagen imagen;
@@ -40,12 +43,10 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Role role;  
     
-    private Integer puntos;
     
     @OneToOne
     private Arbol arbol;
-    
-    private Boolean alta;
+ 
 }
 
 

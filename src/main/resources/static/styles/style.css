@@ -27,17 +27,24 @@
   margin:10px auto;
   text-align : center; 
 }
-
+.datos{
+  padding-top: 50px;
+}
 .botonregar{
   width: 800px;
-  margin: 10px auto;
   text-align:right;
+  padding-top: 50px;
 }
 .video{
   width: 100%;
   height: auto;
   background-color: #7fffd4;
 
+}
+.configurar{
+  margin: auto 10px;
+  text-decoration: none;
+  color: black !important;
 }
 /*contenido*/
 .cajasFlex {
@@ -121,4 +128,7 @@ text-align: end;
   display: flex;
   justify-content: space-between;
 }
-
+/*editar usuario*/
+.btnguardar{
+  margin: 10px;
+}
