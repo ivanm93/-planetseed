@@ -60,8 +60,7 @@
 <!-- energia solar -->
 <section class="seccionCuestionario" th:if="${question}==5">
 <div class="cuestionario">
-<p th:text="${question}"></p>
-
+  
  <h4>1-¿que es la energia solar?</h4> 
  <div id="pregunta1">
  <div class="form-check">
@@ -186,7 +185,7 @@
 
 <!-- fin cuestionario -->
 <!-- energia eolica comienzo -->
-<div class="seccionCuestionario">
+<div class="seccionCuestionario" th:if="${question}==1">
 <div class="cuestionario">
 
  <h4>1-¿que es la energia eolica?</h4> 
@@ -312,7 +311,7 @@
 </div>
 <!-- fin de cuestionario -->
 <!-- hidrocultivo -->
-<div class="seccionCuestionario">
+<div class="seccionCuestionario" th:if="${question}==4" >
 <div class="cuestionario">
 
  <h4>1-¿que es hidroponia?</h4> 
@@ -438,7 +437,7 @@
 </div>
 <!-- fin de cuestionario -->
 <!--incendios forestal -->
-<div class="seccionCuestionario">
+<div class="seccionCuestionario"th:if="${question}==3">
   <div class="cuestionario">
   
    <h4>1-¿que es el incendios forestal?</h4> 
@@ -564,7 +563,7 @@
   </div>
   <!-- fin del cuestionario -->
   <!--medio ambiente -->
-  <div class="seccionCuestionario">
+  <div class="seccionCuestionario" th:if="${question}==7">
     <div class="cuestionario">
     
      <h4>1-¿Por qué es importante cuidar el medio ambiente?</h4> 
@@ -690,7 +689,7 @@
     </div>
     <!-- fin del cuestionario -->
     <!-- reforentacion -->
-    <div class="seccionCuestionario">
+    <div class="seccionCuestionario" th:if="${question}==2">
       <div class="cuestionario">
       
        <h4>1-¿Que produce la reforestacion?</h4> 
@@ -819,7 +818,7 @@
       <!-- fin del cuestionario -->
       <!-- proteccion animal -->
 
-      <div class="seccionCuestionario">
+      <div class="seccionCuestionario" th:if="${question}==6">
         <div class="cuestionario">
         
          <h4>1-¿Cual es la causa principal de la extincion animal?</h4> 
@@ -947,7 +946,7 @@
         <!-- fin del cuestionario -->
         <!--reciclaje-->
         
-      <div class="seccionCuestionario">
+      <div class="seccionCuestionario" th:if="${question}==8">
         <div class="cuestionario">
         
          <h4>1-¿La importancia de reciclar?</h4> 
