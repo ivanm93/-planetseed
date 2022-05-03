@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +32,12 @@ public class MainController {
     @Autowired
     private UsuarioServicio usuarioServicio;
         
-    @GetMapping("/")
+         @GetMapping("/")
+    public String Redirecciono(){
+        return "login.html";
+    }
+    
+    @GetMapping("/login")
     public String login(@RequestParam(required = false) String error, 
             @RequestParam(required = false) String logout, @RequestParam(required = false) String email, 
             @RequestParam(required = false) String password, ModelMap model){
@@ -71,41 +77,53 @@ public class MainController {
             return "registro.html";
         }
     }
-    
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/perfil")
     public String perfil(ModelMap modelo, HttpSession session){
         try{
-            Usuario usuario = (Usuario) session.getAttribute("usuariosession");
-            modelo.put("usuario", usuario);
+            Usuario usuario = (Usuario) session.getAttribute("usuariosession");     
+            modelo.put("usuario", usuarioServicio.buscarPorId(usuario.getId()));
         } catch (Exception ex) {
             modelo.put("error", ex.getMessage());
         }
-        Usuario usuario = (Usuario) session.getAttribute("usuariosession");
-        modelo.put("usuario", usuario);
+   
         return "perfil.html";
     } 
-   
-    @PostMapping("/perfil/editar")
+       
+     @GetMapping("/editarusuario")
+    public String EditarUsuario(ModelMap modelo, HttpSession session){
+        try{
+          Usuario usuario = (Usuario) session.getAttribute("usuariosession");
+          usuario.getPassword();
+            modelo.put("usuario", usuarioServicio.buscarPorId(usuario.getId()));
+        }catch (Exception ex) {
+            modelo.put("error", ex.getMessage());
+        }
+        return "editarusuario.html";
+    }
+    
+    @PostMapping("/editarusuario")
     public String editar(ModelMap modelo, RedirectAttributes redirectAttributes, @RequestParam String id, 
             @RequestParam(required = false) String nombre, @RequestParam(required = false)String apellido, 
-            @RequestParam(required = false)Integer edad, @RequestParam(required = false)String email, 
-            @RequestParam(required = false) String password, @RequestParam(required = false)MultipartFile archivo) {        
+            @RequestParam(required = false)Integer edad, @RequestParam(required = false)String descripcion,
+            @RequestParam(required = false)MultipartFile archivo) {        
         try {           
-            usuarioServicio.editar(id, nombre, apellido, edad, email, password, archivo);               
+            usuarioServicio.editar(id, nombre, apellido, edad, descripcion, archivo);               
             modelo.put("exito","Se ha editado el perfil");
             redirectAttributes.addFlashAttribute("exito", "Usuario editado con éxito");
         } catch (ErrorServicio ex) {
             modelo.put("error", ex.getMessage());
             redirectAttributes.addFlashAttribute("error", ex.getMessage());
         }      
-        return "redirect:/perfil/editar";
+        return "redirect:/editarusuario";
     }
     
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/contenido")
     public String Contenido(){
         return "contenido.html";
     }
-    
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/resumen")
      public String Resumen(ModelMap modelo, @RequestParam(required = false) Integer valor){
         modelo.put("valor", valor);
@@ -113,16 +131,15 @@ public class MainController {
         return "resumen.html";
     }
     
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/cuestionario")
-    public String Cuestionario(){
+    public String Cuestionario(ModelMap modelo, @RequestParam(required = false) Integer question){
+                modelo.put("question", question);
+
         return "cuestionario.html";
     }
     
-     @GetMapping("/editarusuario")
-    public String EditarUsuario(){
-        return "editarusuario.html";
-    }
-    
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/comunidad")
     public String comunidad(ModelMap modelo){
         List<Usuario> listaUsuarios = usuarioServicio.findAll();

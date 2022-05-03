@@ -40,7 +40,7 @@ public class ConfiguracionesSeguridad extends WebSecurityConfigurerAdapter{
                         
                         .usernameParameter("email")
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/?login").permitAll() 
+                        .defaultSuccessUrl("/perfil?").permitAll() 
                 .and().logout() 
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login?logout").permitAll()

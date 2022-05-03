@@ -22,9 +22,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
+import planetseed.proyectofinal.entidades.Arbol;
 import planetseed.proyectofinal.entidades.Imagen;
 import planetseed.proyectofinal.entidades.Usuario;
 import planetseed.proyectofinal.enumeraciones.Role;
+import planetseed.proyectofinal.enumeraciones.Tipo;
 import planetseed.proyectofinal.errores.ErrorServicio;
 import planetseed.proyectofinal.repositorios.UsuarioRepo;
 
@@ -40,36 +42,33 @@ public class UsuarioServicio implements UserDetailsService {
     @Transactional
     public Usuario crear(String nombre, String apellido, Integer edad, String email,
             String password, MultipartFile archivo) throws ErrorServicio {
+   
+        validar(nombre, apellido, edad, email, password);      //validar datos
 
-        validar(nombre, apellido, edad, email, password);
+        Usuario u = new Usuario(); //creo un nuevo usuario para setear
 
-        Usuario u = new Usuario();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(); //codifico contraseña
+        
+        Imagen imagen = imagenServicio.guardar(archivo);  //creo una imagen
 
+        //seteo todos los datos del usuario
         u.setNombre(nombre);
         u.setApellido(apellido);
         u.setEdad(edad);
         u.setEmail(email);
-
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         u.setPassword(encoder.encode(password));
-
-        Imagen imagen = imagenServicio.guardar(archivo);
         u.setImagen(imagen);
-
         u.setRole(Role.USER);
-
         u.setPuntos(0);
-
         u.setAlta(true);
-
+        u.setDescripcion("sin descripción");
+        
         return usuarioRepo.save(u);
     }
 
     @Transactional
     public Usuario editar(String id, String nombre, String apellido, Integer edad,
-            String email, String password, MultipartFile archivo) throws ErrorServicio {
-
-        validar(nombre, apellido, edad, email, password);
+           String descripcion, MultipartFile archivo) throws ErrorServicio {
         
         Optional<Usuario> respuesta = usuarioRepo.findById(id);
         if (respuesta.isPresent()) {
@@ -78,10 +77,7 @@ public class UsuarioServicio implements UserDetailsService {
             u.setNombre(nombre);
             u.setApellido(apellido);
             u.setEdad(edad);
-            u.setEmail(email);
-
-            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-            u.setPassword(encoder.encode(password));
+            u.setDescripcion(descripcion);
 
             Imagen imagen = imagenServicio.guardar(archivo);
             u.setImagen(imagen);
@@ -92,6 +88,19 @@ public class UsuarioServicio implements UserDetailsService {
         }
     }
 
+     @Transactional
+    public Usuario buscarPorId(String id) throws ErrorServicio {
+        
+        Optional<Usuario> respuesta = usuarioRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Usuario u = respuesta.get();
+
+       return u;             
+        } else {
+            throw new ErrorServicio("No se ha encontrado el usuario");
+        }
+    }
+    
     @Transactional
     public void darBaja(String id) throws Exception {
         Optional<Usuario> respuesta = usuarioRepo.findById(id);

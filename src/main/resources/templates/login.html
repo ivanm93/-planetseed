@@ -47,24 +47,41 @@
           </div>
         </div>
       </nav>
-      
-
-      <form class="formulario" >
-        <fieldset disabled>
+     <!-- mensaje -->
+      <div class="formulario">
+      <div th:if="${error}!=null" class="alert alert-danger mb-3" >
+        <div class="card-body">
+            <h5 class="card-title">Error</h5>
+            <p class="card-text" th:text="${error}"></p>
+        </div>
+    </div>
+    <div th:if="${logout}!=null" class="alert alert-warning mb-3" >
+        <div class="card-body">
+          <h5 class="card-title">Cerrar sesion</h5>
+            <p class="card-text" th:text="${logout}"></p>
+        </div>
+    </div>
+    <div class="alert alert-success w-25 d-flex justify-content-center" th:if="${exito != null}" th:text="${exito}" role="alert">
+    </div>
+   </div>
+    <!-- formulario  -->
+      <form class="formulario" th:action="@{/logincheck}" method="POST">
           <legend><strong>Iniciar sesion</strong></legend>
           <div class="mb-3">
             <label for="disabledTextInput" class="form-label">ingrese email</label>
-            <input type="text" id="disabledTextInput" class="form-control" placeholder="example:juanitolaguna@gmail.com">
+            <input type="email" id="disabledTextInput" class="form-control" name="email" placeholder="example:juanitolaguna@gmail.com">
           </div>
           <label for="inputPassword5" class="form-label">Password</label>
-          <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+          <input type="password" id="inputPassword5" class="form-control" name="password" aria-describedby="passwordHelpBlock">
           <div id="passwordHelpBlock" class="form-text">
             Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
           </div>
           <button type="submit" class="btn btn-success">Iniciar</button>
-        </fieldset>
       </form>
 
+        
+
+      
 
       <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

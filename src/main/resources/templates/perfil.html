@@ -51,10 +51,10 @@
               </li>
             </ul>
             <div class="d-flex ">
-              <span class="nav-link">Mis puntos<i class="bi bi-plus"></i></span>
+              <span class="nav-link" th:if="${session.usuariosession!=null}" th:text="${session.usuariosession.puntos+ ' puntos'}"></span>
             </div>
             <div class="d-flex ">
-              <a class="cerrar" href="/">cerrar sesion</a>
+              <a class="cerrar" href="/logout">cerrar sesion</a>
             </div>
             <div class="d-flex configurar">
               <a class="bi bi-gear" href="/editarusuario"></a>
@@ -73,8 +73,9 @@
 
         </div>
         <div class="col-md-7 datos">
-          <h2 class="featurette-heading">Nombre Apellido, Edad</h2>
-          <p class="lead">Resumen de la persona en una descripcion como gustos, hobby, profesion. Opinion propia de la contaminacin y como aporta para cuidar al medio ambiente</p>
+          <h2 class="featurette-heading" th:if="${usuario!=null}" th:text="${usuario.nombre+ ' '+ usuario.apellido+', '+ usuario.edad+ ' años.'}"></h2>
+          <p class="lead" th:if="${usuario.descripcion==null}"> Agregue descripcion desde configuraciones <i class="bi bi-gear" ></i></p> 
+          <p class="lead" th:if="${usuario.descripcion!=null}" th:text="${usuario.descripcion}"></p>
         </div>
       </div>
     </div>
@@ -85,7 +86,7 @@
               <a href="#" class="btn btn-success ">Regar <i class="bi bi-heart"></i></a>
             </div>
               <div class="arbol">
-                  <video src="/videos/arbol.mp4" width="700"controls></video> 
+                  <video src="/videos/arbol.mp4" width="700" controls></video> 
               </div>
             </div>
         <!-- inicio del foooter parte de abajo de la pantalla -->

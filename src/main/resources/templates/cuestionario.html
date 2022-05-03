@@ -50,7 +50,7 @@
               <span class="nav-link">Mis puntos<i class="bi bi-plus"></i></span>
             </div>
             <div class="d-flex">
-              <a class="cerrar" href="/">cerrar sesion</a>
+              <a class="cerrar" href="/logout">cerrar sesion</a>
             </div>
           </div>
         </div>
@@ -58,8 +58,9 @@
 <!-- cuestionario -->
 
 <!-- energia solar -->
-<div class="seccionCuestionario">
+<section class="seccionCuestionario" th:if="${question}==5">
 <div class="cuestionario">
+<p th:text="${question}"></p>
 
  <h4>1-¿que es la energia solar?</h4> 
  <div id="pregunta1">
@@ -181,7 +182,7 @@
 </div>
 
 </div>
-</div>
+</section>
 
 <!-- fin cuestionario -->
 
