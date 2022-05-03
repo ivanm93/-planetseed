@@ -134,7 +134,7 @@ public class MainController {
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/cuestionario")
     public String Cuestionario(ModelMap modelo, @RequestParam(required = false) Integer question){
-                modelo.put("question", question);
+      modelo.put("question", question);
 
         return "cuestionario.html";
     }

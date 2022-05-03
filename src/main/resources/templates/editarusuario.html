@@ -62,6 +62,7 @@
       </nav>
       
 <!-- seccion -->
+<!-- Editar usuario -->
 <form class="formulario" action="/editarusuario" method="POST">
     <legend><strong>Editar Perfil</strong></legend>
    
@@ -82,21 +83,44 @@
       <input type="text" id="disabledTextInput"  name="edad" th:value="*{usuario.edad}"  class="form-control" placeholder="example:18">
     </div>
 
-    <label for="disabledTextInput" class="form-label"  >Agregar descripción</label>
+    <label for="disabledTextInput" class="form-label"  >Agregar/cambiar descripción</label>
     <div class="input-group"> 
-        <textarea class="form-control" aria-label="With textarea" name="descripcion" th:value="*{usuario.descripcion}"></textarea>
+        <textarea class="form-control" aria-label="With textarea" name="descripcion" th:value="*{usuario.descripcion}" th:text="*{usuario.descripcion}"></textarea>
       </div>
     
+      <button type="submit" class="btn btn-success btnguardar">Guardar</button>
+      <button class="btn btn-danger btnguardar">Dar de baja cuenta</button>
+  
+  </form>
     <!-- Editar abol -->
-    <legend><strong>Editar nombre del arbol</strong></legend>
-      <div class="mb-3">
-        <label for="disabledTextInput"  class="form-label">Nombre</label>
-        <input type="text" id="disabledTextInput" name="nombreArbol"  th:if="${usuario.arbol!=null}" th:text="*{usuario.arbol.nombre}"  class="form-control" placeholder="example: rogelio">
-      </div>
-    
-    <button type="submit" class="btn btn-success btnguardar">Guardar</button>
-    <button class="btn btn-danger btnguardar">Dar de baja cuenta</button>
+    <form class="formulario" action="/" method="POST">
 
+    <legend><strong>Editar nombre del arbol</strong></legend>
+      <div class="mb-3" th:if="${usuario.arbol!=null}">
+        <label for="disabledTextInput"  class="form-label">Nombre</label>
+        <input type="text" id="disabledTextInput" name="nombreArbol"   th:value="*{usuario.arbol.nombre}"  class="form-control" placeholder="example: rogelio">
+      </div>
+      <div class="mb-3" th:if="${usuario.arbol==null}">
+        <label for="disabledTextInput"  class="form-label">Nombre</label>
+        <input type="text" id="disabledTextInput" name="nombreArbol" class="form-control" placeholder="example: rogelio">
+      </div>
+    <button type="submit" class="btn btn-success btnguardar">Guardar</button>
+
+</form>
+   <!-- Editar contraseña -->
+   <form class="formulario" action="/" method="POST">
+
+    <legend><strong>Editar contraseña</strong></legend>
+      <div class="mb-3">
+        <label for="disabledTextInput"  class="form-label">Contraseña nueva</label>
+        <input type="text" id="disabledTextInput" name="password1"   class="form-control">
+      </div>
+
+      <div class="mb-3">
+      <label for="disabledTextInput"  class="form-label">Repita Contraseña nueva</label>
+      <input type="text" id="disabledTextInput" name="password2"   class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success btnguardar">Guardar</button>
 </form>
 <!-- cartel de exito  o error -->
   <div class="alert alert-success" role="alert" th:if="${exito}!=null">
