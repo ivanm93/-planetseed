@@ -49,7 +49,7 @@
               </li>
             </ul>
             <div class="d-flex ">
-              <span class="nav-link">Mis puntos<i class="bi bi-plus"></i></span>
+              <span class="nav-link" th:if="${session.usuariosession!=null}" th:text="${usuario.puntos+ ' puntos'}"></span>
             </div>
             <div class="d-flex ">
               <a class="cerrar" href="/logout">cerrar sesion</a>
@@ -92,11 +92,24 @@
       <button class="btn btn-danger btnguardar">Dar de baja cuenta</button>
   
   </form>
+  <!-- cartel de exito  o error -->
+  <div class="alert alert-success" role="alert" th:if="${exito}!=null">
+    <p th:text="${exito}"></p>
+  </div>
+  <div class="alert alert-danger" role="alert" th:if="${error}!=null">
+     <p th:text="${error}"></p>
+  </div>
+
     <!-- Editar abol -->
-    <form class="formulario" action="/" method="POST">
+    <form class="formulario" action="/editararbol" method="POST">
 
     <legend><strong>Editar nombre del arbol</strong></legend>
-      <div class="mb-3" th:if="${usuario.arbol!=null}">
+     
+ 
+      <input type="hidden" id="disabledTextInput" name="idArbol"  th:value="*{usuario.arbol.id}"  class="form-control">
+   
+
+    <div class="mb-3" th:if="${usuario.arbol!=null}">
         <label for="disabledTextInput"  class="form-label">Nombre</label>
         <input type="text" id="disabledTextInput" name="nombreArbol"   th:value="*{usuario.arbol.nombre}"  class="form-control" placeholder="example: rogelio">
       </div>
@@ -107,6 +120,13 @@
     <button type="submit" class="btn btn-success btnguardar">Guardar</button>
 
 </form>
+
+<div class="alert alert-success" role="alert" th:if="${check}!=null">
+  <p th:text="${check}"></p>
+</div>
+<div class="alert alert-danger" role="alert" th:if="${fall}!=null">
+   <p th:text="${fall}"></p>
+</div>
    <!-- Editar contraseña -->
    <form class="formulario" action="/" method="POST">
 
@@ -122,13 +142,7 @@
     </div>
     <button type="submit" class="btn btn-success btnguardar">Guardar</button>
 </form>
-<!-- cartel de exito  o error -->
-  <div class="alert alert-success" role="alert" th:if="${exito}!=null">
-      <p th:text="${exito}"></p>
-    </div>
-    <div class="alert alert-danger" role="alert" th:if="${error}!=null">
-       <p th:text="${error}"></p>
-    </div>
+
 
 <!-- fin seccion -->
       <div class="container">

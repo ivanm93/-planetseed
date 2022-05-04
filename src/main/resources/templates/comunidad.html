@@ -51,7 +51,7 @@
               </li>
             </ul>
             <div class="d-flex ">
-              <span class="nav-link">Mis puntos<i class="bi bi-plus" ></i></span>
+              <span class="nav-link" th:if="${session.usuariosession!=null}" th:text="${usuario.puntos+ ' puntos'}"></span>
             </div>
             <div class="d-flex ">
               <a class="cerrar" href="/logout">cerrar sesion</a>
@@ -70,8 +70,8 @@
 
         </div>
         <div class="col-md-9" >
-            <h2 class="featurette-heading"><i th:value = "${usuario.nombre}" th:text = "${usuario.nombre}" ></i> <i th:value = "${usuario.apellido}" th:text = "${usuario.apellido}"></i> ,<i th:value = "${usuario.edad}" th:text = "${usuario.edad}"></i> </h2>
-          <h3>nombre del arbol, puntos del arbol</h3>
+            <h2 class="featurette-heading"><i  th:text = "${usuario.nombre}" ></i> <i th:text = "${usuario.apellido}"></i> ,<i th:value = "${usuario.edad}" th:text = "${usuario.edad}"></i> </h2>
+          <h3><i th:text = "${usuario.arbol.nombre}" ></i>, <i th:text = "${usuario.arbol.puntos}"></i> puntos</h3>
           <div class="verarbol">
             <a href="#" class="btn btn-success ">Ver arbol <i class="bi bi-arrow-right"></i></a>
           </div>

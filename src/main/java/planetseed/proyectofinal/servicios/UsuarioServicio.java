@@ -38,6 +38,9 @@ public class UsuarioServicio implements UserDetailsService {
 
     @Autowired
     private ImagenServicio imagenServicio;
+    
+        @Autowired
+    private ArbolServicio arbolservicio;
 
     @Transactional
     public Usuario crear(String nombre, String apellido, Integer edad, String email,
@@ -51,6 +54,8 @@ public class UsuarioServicio implements UserDetailsService {
         
         Imagen imagen = imagenServicio.guardar(archivo);  //creo una imagen
 
+        Arbol arbol = new Arbol();
+        arbolservicio.crear(arbol);
         //seteo todos los datos del usuario
         u.setNombre(nombre);
         u.setApellido(apellido);
@@ -62,6 +67,7 @@ public class UsuarioServicio implements UserDetailsService {
         u.setPuntos(0);
         u.setAlta(true);
         u.setDescripcion("sin descripción");
+        u.setArbol(arbol);
         
         return usuarioRepo.save(u);
     }

@@ -17,16 +17,13 @@ public class ArbolServicio {
     private ArbolRepo arbolRepo;
 
     @Transactional
-    public Arbol crear(String nombre) throws ErrorServicio {
+    public Arbol crear(Arbol arbol) throws ErrorServicio {
 
-        validar(nombre);
-        Arbol a = new Arbol();
+        arbol.setTipo(Tipo.MANZANO);
+        arbol.setAlta(true);
+        arbol.setPuntos(0);
 
-        a.setNombre(nombre);
-        a.setTipo(Tipo.MANZANO);
-        a.setAlta(true);
-
-        return arbolRepo.save(a);
+        return arbolRepo.save(arbol);
     }
 
     @Transactional

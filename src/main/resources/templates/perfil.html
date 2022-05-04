@@ -51,7 +51,7 @@
               </li>
             </ul>
             <div class="d-flex ">
-              <span class="nav-link" th:if="${session.usuariosession!=null}" th:text="${session.usuariosession.puntos+ ' puntos'}"></span>
+              <span class="nav-link" th:if="${session.usuariosession!=null}" th:text="${usuario.puntos + ' puntos'}"></span>
             </div>
             <div class="d-flex ">
               <a class="cerrar" href="/logout">cerrar sesion</a>
@@ -84,8 +84,8 @@
              <div class="video">
              
              <div class="botonregar">
-              <p>Nombre: </p>
-              <p>Puntos del àrbol: </p>
+              <p>Nombre: <i th:text="${usuario.arbol.nombre}"></i> </p>
+              <p>Puntos del àrbol: <i th:text="${usuario.arbol.puntos}"></i></p>
               <a href="#" class="btn btn-success ">Regar <i class="bi bi-heart"></i></a>
             </div>
               <div class="arbol">

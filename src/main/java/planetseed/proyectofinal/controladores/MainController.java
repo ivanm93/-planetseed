@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import planetseed.proyectofinal.entidades.Usuario;
 import planetseed.proyectofinal.errores.ErrorServicio;
+import planetseed.proyectofinal.servicios.ArbolServicio;
 import planetseed.proyectofinal.servicios.UsuarioServicio;
 
     @Controller
@@ -31,7 +32,10 @@ public class MainController {
    
     @Autowired
     private UsuarioServicio usuarioServicio;
-        
+    
+    @Autowired
+    private ArbolServicio arbolservicio;
+          
          @GetMapping("/")
     public String Redirecciono(){
         return "login.html";
@@ -93,6 +97,7 @@ public class MainController {
      @GetMapping("/editarusuario")
     public String EditarUsuario(ModelMap modelo, HttpSession session){
         try{
+            
           Usuario usuario = (Usuario) session.getAttribute("usuariosession");
           usuario.getPassword();
             modelo.put("usuario", usuarioServicio.buscarPorId(usuario.getId()));
@@ -118,14 +123,40 @@ public class MainController {
         return "redirect:/editarusuario";
     }
     
+        @PostMapping("/editararbol")
+    public String editarArbol(ModelMap modelo, RedirectAttributes redirectAttributes, @RequestParam String idArbol, 
+            @RequestParam(required = false) String nombreArbol) {        
+        try {           
+            arbolservicio.editar(idArbol, nombreArbol);
+            modelo.put("check","Se ha editado el Nombre");
+            redirectAttributes.addFlashAttribute("exito", "Nombre del arbol editado exitosamente");
+        } catch (ErrorServicio ex) {
+            modelo.put("fall", ex.getMessage());
+            redirectAttributes.addFlashAttribute("error", ex.getMessage());
+        }      
+        return "redirect:/editarusuario";
+    }
+    
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/contenido")
-    public String Contenido(){
+    public String Contenido(ModelMap modelo, HttpSession session ){
+           Usuario usuario = (Usuario) session.getAttribute("usuariosession");     
+        try {
+            modelo.put("usuario", usuarioServicio.buscarPorId(usuario.getId()));
+        } catch (ErrorServicio ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return "contenido.html";
     }
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/resumen")
-     public String Resumen(ModelMap modelo, @RequestParam(required = false) Integer valor){
+     public String Resumen(ModelMap modelo, @RequestParam(required = false) Integer valor, HttpSession session ){
+                  Usuario usuario = (Usuario) session.getAttribute("usuariosession");     
+        try {
+            modelo.put("usuario", usuarioServicio.buscarPorId(usuario.getId()));
+        } catch (ErrorServicio ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         modelo.put("valor", valor);
         
         return "resumen.html";
@@ -133,7 +164,13 @@ public class MainController {
     
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/cuestionario")
-    public String Cuestionario(ModelMap modelo, @RequestParam(required = false) Integer question){
+    public String Cuestionario(ModelMap modelo, @RequestParam(required = false) Integer question, HttpSession session ){
+           Usuario usuario = (Usuario) session.getAttribute("usuariosession");     
+        try {
+            modelo.put("usuario", usuarioServicio.buscarPorId(usuario.getId()));
+        } catch (ErrorServicio ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
       modelo.put("question", question);
 
         return "cuestionario.html";
@@ -141,7 +178,9 @@ public class MainController {
     
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/comunidad")
-    public String comunidad(ModelMap modelo){
+    public String comunidad(ModelMap modelo, HttpSession session ) throws ErrorServicio{
+           Usuario usuario = (Usuario) session.getAttribute("usuariosession");     
+            modelo.put("usuario", usuarioServicio.buscarPorId(usuario.getId()));
         List<Usuario> listaUsuarios = usuarioServicio.findAll();
         modelo.addAttribute("listaUsuarios", listaUsuarios);
         return "comunidad.html";
