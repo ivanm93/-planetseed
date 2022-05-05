@@ -51,13 +51,13 @@
           </div>
         </div>
       </nav>
+    
          <!--inicio de formulario--> 
-         <form class="formulario" >
-            <fieldset disabled>
+         <form th:action="@{/registro}" method="POST" class="formulario" >        
               <legend><strong>Registrate para cambiar el mundo</strong></legend>
               <div class="mb-3">
-                <label for="disabledTextInput" class="form-label">Nombre</label>
-                <input type="text" id="disabledTextInput" class="form-control" placeholder="example:juanito">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre">
               </div>
               <div class="mb-3">
                 <label for="disabledTextInput" class="form-label">Apellido</label>
@@ -77,7 +77,7 @@
                 Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
               </div>
               <button type="submit" class="btn btn-success">registrar</button>
-            </fieldset>
+            
           </form>
          
 
