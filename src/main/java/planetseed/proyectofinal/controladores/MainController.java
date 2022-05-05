@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import planetseed.proyectofinal.entidades.Usuario;
 import planetseed.proyectofinal.errores.ErrorServicio;
 import planetseed.proyectofinal.servicios.ArbolServicio;
+import planetseed.proyectofinal.servicios.PreguntaServicio;
 import planetseed.proyectofinal.servicios.UsuarioServicio;
 
     @Controller
@@ -35,7 +36,7 @@ public class MainController {
     
     @Autowired
     private ArbolServicio arbolservicio;
-          
+    
          @GetMapping("/")
     public String Redirecciono(){
         return "login.html";
@@ -186,5 +187,531 @@ public class MainController {
         return "comunidad.html";
     }
     
+      @PostMapping("/gestionar/{id}")
+    public String Gestionar(@PathVariable(name = "id") String id, RedirectAttributes redirectAttributes,@RequestParam(required = false, defaultValue="0") Integer flexRadio1,@RequestParam(required = false, defaultValue="0") Integer flexRadio2,@RequestParam(required = false, defaultValue="0") Integer flexRadio3,@RequestParam(required = false, defaultValue="0") Integer flexRadio4,@RequestParam(required = false, defaultValue="0") Integer flexRadio5){       
+
+           if(flexRadio1==1){
+               redirectAttributes.addFlashAttribute("res1c", "Respuesta Correcta +1 Punto ");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+               redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res1i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio2==1){
+               redirectAttributes.addFlashAttribute("res2c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else {
+           redirectAttributes.addFlashAttribute("res2i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+               if(flexRadio3==1){
+               redirectAttributes.addFlashAttribute("res3c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res3i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio4==1){
+               redirectAttributes.addFlashAttribute("res4c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res4i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio5==1){
+               redirectAttributes.addFlashAttribute("res5c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res5i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+      return "redirect:/cuestionario?question=5";
+    }  
+
+     @PostMapping("/gestionar2/{id}")
+    public String Gestionar2(@PathVariable(name = "id") String id, RedirectAttributes redirectAttributes,@RequestParam(required = false, defaultValue="0") Integer flexRadio1,@RequestParam(required = false, defaultValue="0") Integer flexRadio2,@RequestParam(required = false, defaultValue="0") Integer flexRadio3,@RequestParam(required = false, defaultValue="0") Integer flexRadio4,@RequestParam(required = false, defaultValue="0") Integer flexRadio5){       
+
+           if(flexRadio1==1){
+               redirectAttributes.addFlashAttribute("res1c", "Respuesta Correcta +1 Punto ");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+               redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res1i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio2==1){
+               redirectAttributes.addFlashAttribute("res2c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else {
+           redirectAttributes.addFlashAttribute("res2i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+               if(flexRadio3==1){
+               redirectAttributes.addFlashAttribute("res3c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res3i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio4==1){
+               redirectAttributes.addFlashAttribute("res4c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res4i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio5==1){
+               redirectAttributes.addFlashAttribute("res5c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res5i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+      return "redirect:/cuestionario?question=1";
+    }  
     
-}
+   @PostMapping("/gestionar3/{id}")
+    public String Gestionar3(@PathVariable(name = "id") String id, RedirectAttributes redirectAttributes,@RequestParam(required = false, defaultValue="0") Integer flexRadio1,@RequestParam(required = false, defaultValue="0") Integer flexRadio2,@RequestParam(required = false, defaultValue="0") Integer flexRadio3,@RequestParam(required = false, defaultValue="0") Integer flexRadio4,@RequestParam(required = false, defaultValue="0") Integer flexRadio5){       
+
+           if(flexRadio1==1){
+               redirectAttributes.addFlashAttribute("res1c", "Respuesta Correcta +1 Punto ");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+               redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res1i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio2==1){
+               redirectAttributes.addFlashAttribute("res2c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else {
+           redirectAttributes.addFlashAttribute("res2i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+               if(flexRadio3==1){
+               redirectAttributes.addFlashAttribute("res3c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res3i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio4==1){
+               redirectAttributes.addFlashAttribute("res4c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res4i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio5==1){
+               redirectAttributes.addFlashAttribute("res5c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res5i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+      return "redirect:/cuestionario?question=4";
+    }  
+    
+     @PostMapping("/gestionar4/{id}")
+    public String Gestionar4(@PathVariable(name = "id") String id, RedirectAttributes redirectAttributes,@RequestParam(required = false, defaultValue="0") Integer flexRadio1,@RequestParam(required = false, defaultValue="0") Integer flexRadio2,@RequestParam(required = false, defaultValue="0") Integer flexRadio3,@RequestParam(required = false, defaultValue="0") Integer flexRadio4,@RequestParam(required = false, defaultValue="0") Integer flexRadio5){       
+
+           if(flexRadio1==1){
+               redirectAttributes.addFlashAttribute("res1c", "Respuesta Correcta +1 Punto ");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+               redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res1i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio2==1){
+               redirectAttributes.addFlashAttribute("res2c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else {
+           redirectAttributes.addFlashAttribute("res2i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+               if(flexRadio3==1){
+               redirectAttributes.addFlashAttribute("res3c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res3i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio4==1){
+               redirectAttributes.addFlashAttribute("res4c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res4i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio5==1){
+               redirectAttributes.addFlashAttribute("res5c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res5i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+      return "redirect:/cuestionario?question=3";
+    }  
+    
+       @PostMapping("/gestionar5/{id}")
+    public String Gestionar5(@PathVariable(name = "id") String id, RedirectAttributes redirectAttributes,@RequestParam(required = false, defaultValue="0") Integer flexRadio1,@RequestParam(required = false, defaultValue="0") Integer flexRadio2,@RequestParam(required = false, defaultValue="0") Integer flexRadio3,@RequestParam(required = false, defaultValue="0") Integer flexRadio4,@RequestParam(required = false, defaultValue="0") Integer flexRadio5){       
+
+           if(flexRadio1==1){
+               redirectAttributes.addFlashAttribute("res1c", "Respuesta Correcta +1 Punto ");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+               redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res1i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio2==1){
+               redirectAttributes.addFlashAttribute("res2c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else {
+           redirectAttributes.addFlashAttribute("res2i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+               if(flexRadio3==1){
+               redirectAttributes.addFlashAttribute("res3c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res3i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio4==1){
+               redirectAttributes.addFlashAttribute("res4c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res4i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio5==1){
+               redirectAttributes.addFlashAttribute("res5c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res5i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+      return "redirect:/cuestionario?question=7";
+    }  
+    
+      @PostMapping("/gestionar6/{id}")
+    public String Gestionar6(@PathVariable(name = "id") String id, RedirectAttributes redirectAttributes,@RequestParam(required = false, defaultValue="0") Integer flexRadio1,@RequestParam(required = false, defaultValue="0") Integer flexRadio2,@RequestParam(required = false, defaultValue="0") Integer flexRadio3,@RequestParam(required = false, defaultValue="0") Integer flexRadio4,@RequestParam(required = false, defaultValue="0") Integer flexRadio5){       
+
+           if(flexRadio1==1){
+               redirectAttributes.addFlashAttribute("res1c", "Respuesta Correcta +1 Punto ");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+               redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res1i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio2==1){
+               redirectAttributes.addFlashAttribute("res2c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else {
+           redirectAttributes.addFlashAttribute("res2i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+               if(flexRadio3==1){
+               redirectAttributes.addFlashAttribute("res3c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res3i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio4==1){
+               redirectAttributes.addFlashAttribute("res4c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res4i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio5==1){
+               redirectAttributes.addFlashAttribute("res5c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res5i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+      return "redirect:/cuestionario?question=2";
+    }  
+    
+     @PostMapping("/gestionar7/{id}")
+    public String Gestionar7(@PathVariable(name = "id") String id, RedirectAttributes redirectAttributes,@RequestParam(required = false, defaultValue="0") Integer flexRadio1,@RequestParam(required = false, defaultValue="0") Integer flexRadio2,@RequestParam(required = false, defaultValue="0") Integer flexRadio3,@RequestParam(required = false, defaultValue="0") Integer flexRadio4,@RequestParam(required = false, defaultValue="0") Integer flexRadio5){       
+
+           if(flexRadio1==1){
+               redirectAttributes.addFlashAttribute("res1c", "Respuesta Correcta +1 Punto ");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+               redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res1i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio2==1){
+               redirectAttributes.addFlashAttribute("res2c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else {
+           redirectAttributes.addFlashAttribute("res2i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+               if(flexRadio3==1){
+               redirectAttributes.addFlashAttribute("res3c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res3i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio4==1){
+               redirectAttributes.addFlashAttribute("res4c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res4i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio5==1){
+               redirectAttributes.addFlashAttribute("res5c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res5i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+      return "redirect:/cuestionario?question=6";
+    }  
+    
+    @PostMapping("/gestionar8/{id}")
+    public String Gestionar8(@PathVariable(name = "id") String id, RedirectAttributes redirectAttributes,@RequestParam(required = false, defaultValue="0") Integer flexRadio1,@RequestParam(required = false, defaultValue="0") Integer flexRadio2,@RequestParam(required = false, defaultValue="0") Integer flexRadio3,@RequestParam(required = false, defaultValue="0") Integer flexRadio4,@RequestParam(required = false, defaultValue="0") Integer flexRadio5){       
+
+           if(flexRadio1==1){
+               redirectAttributes.addFlashAttribute("res1c", "Respuesta Correcta +1 Punto ");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+               redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res1i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio2==1){
+               redirectAttributes.addFlashAttribute("res2c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else {
+           redirectAttributes.addFlashAttribute("res2i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+               if(flexRadio3==1){
+               redirectAttributes.addFlashAttribute("res3c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res3i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio4==1){
+               redirectAttributes.addFlashAttribute("res4c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res4i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+             if(flexRadio5==1){
+               redirectAttributes.addFlashAttribute("res5c", "Respuesta Correcta +1 Punto");
+               try {
+                   usuarioServicio.sumar(id);
+               } catch (Exception ex) {
+                   Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }else{
+               redirectAttributes.addFlashAttribute("res5i", "Respuesta Incorrecta");
+           redirectAttributes.addFlashAttribute("bot", "v");
+           }
+      return "redirect:/cuestionario?question=8";
+    }  
+    }

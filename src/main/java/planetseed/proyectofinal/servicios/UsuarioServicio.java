@@ -24,6 +24,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import planetseed.proyectofinal.entidades.Arbol;
 import planetseed.proyectofinal.entidades.Imagen;
+import planetseed.proyectofinal.entidades.Pregunta;
 import planetseed.proyectofinal.entidades.Usuario;
 import planetseed.proyectofinal.enumeraciones.Role;
 import planetseed.proyectofinal.enumeraciones.Tipo;
@@ -41,6 +42,9 @@ public class UsuarioServicio implements UserDetailsService {
     
         @Autowired
     private ArbolServicio arbolservicio;
+               
+        @Autowired
+    private PreguntaServicio preguntaservicio;
 
     @Transactional
     public Usuario crear(String nombre, String apellido, Integer edad, String email,
@@ -54,9 +58,14 @@ public class UsuarioServicio implements UserDetailsService {
         
         Imagen imagen = imagenServicio.guardar(archivo);  //creo una imagen
 
-        Arbol arbol = new Arbol();
+        Arbol arbol = new Arbol(); //Crear objeto de arbol vacio para un usuario nuevo 
         arbolservicio.crear(arbol);
-        //seteo todos los datos del usuario
+        
+      //  List<Pregunta> preguntas = new ArrayList();
+        // preguntas.add(preguntaservicio.crear(1)); 
+       // u.setPregunta(preguntas);
+       
+       //seteo todos los datos del usuario
         u.setNombre(nombre);
         u.setApellido(apellido);
         u.setEdad(edad);
@@ -113,6 +122,18 @@ public class UsuarioServicio implements UserDetailsService {
         if (respuesta.isPresent()) {
             Usuario u = respuesta.get();
             u.setAlta(false);
+            usuarioRepo.save(u);
+        } else {
+            throw new Exception("No se ha encontrado el usuario");
+        }
+    }
+    
+     @Transactional
+    public void sumar(String id) throws Exception {
+        Optional<Usuario> respuesta = usuarioRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Usuario u = respuesta.get();
+            u.setPuntos(u.getPuntos()+1);
             usuarioRepo.save(u);
         } else {
             throw new Exception("No se ha encontrado el usuario");
