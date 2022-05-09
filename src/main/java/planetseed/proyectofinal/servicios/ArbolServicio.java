@@ -61,6 +61,18 @@ public class ArbolServicio {
         }
     }
     
+         @Transactional
+    public void sumar(String id) throws Exception {
+        Optional<Arbol> respuesta = arbolRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Arbol arbol = respuesta.get();
+            arbol.setPuntos(arbol.getPuntos()+1);
+            arbolRepo.save(arbol);
+        } else {
+            throw new Exception("No se ha encontrado el usuario");
+        }
+    }
+    
     public void validar(String nombre) throws ErrorServicio {
              
         if (nombre == null || nombre.isEmpty()) {

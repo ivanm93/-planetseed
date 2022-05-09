@@ -5,9 +5,15 @@
  */
 package planetseed.proyectofinal.servicios;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -24,10 +30,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import planetseed.proyectofinal.entidades.Arbol;
 import planetseed.proyectofinal.entidades.Imagen;
-import planetseed.proyectofinal.entidades.Pregunta;
 import planetseed.proyectofinal.entidades.Usuario;
 import planetseed.proyectofinal.enumeraciones.Role;
-import planetseed.proyectofinal.enumeraciones.Tipo;
 import planetseed.proyectofinal.errores.ErrorServicio;
 import planetseed.proyectofinal.repositorios.UsuarioRepo;
 
@@ -36,19 +40,13 @@ public class UsuarioServicio implements UserDetailsService {
 
     @Autowired
     private UsuarioRepo usuarioRepo;
-
-    @Autowired
-    private ImagenServicio imagenServicio;
     
         @Autowired
     private ArbolServicio arbolservicio;
-               
-        @Autowired
-    private PreguntaServicio preguntaservicio;
 
     @Transactional
     public Usuario crear(String nombre, String apellido, Integer edad, String email,
-            String password, MultipartFile archivo) throws ErrorServicio {
+            String password) throws ErrorServicio {
    
         validar(nombre, apellido, edad, email, password);      //validar datos
 
@@ -56,8 +54,6 @@ public class UsuarioServicio implements UserDetailsService {
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(); //codifico contraseña
         
-        Imagen imagen = imagenServicio.guardar(archivo);  //creo una imagen
-
         Arbol arbol = new Arbol(); //Crear objeto de arbol vacio para un usuario nuevo 
         arbolservicio.crear(arbol);
         
@@ -71,7 +67,6 @@ public class UsuarioServicio implements UserDetailsService {
         u.setEdad(edad);
         u.setEmail(email);
         u.setPassword(encoder.encode(password));
-        u.setImagen(imagen);
         u.setRole(Role.USER);
         u.setPuntos(0);
         u.setAlta(true);
@@ -94,8 +89,35 @@ public class UsuarioServicio implements UserDetailsService {
             u.setEdad(edad);
             u.setDescripcion(descripcion);
 
-            Imagen imagen = imagenServicio.guardar(archivo);
-            u.setImagen(imagen);
+            return usuarioRepo.save(u);           
+        } else {
+            throw new ErrorServicio("No se ha encontrado el usuario");
+        }
+    }
+    
+        @Transactional
+    public Usuario editarfoto(String id, MultipartFile archivo) throws ErrorServicio {
+        
+        Optional<Usuario> respuesta = usuarioRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Usuario u = respuesta.get();
+
+            if(!archivo.isEmpty()){
+                Path directorioImagenes = Paths.get("src//main//resources//static/images");
+                String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
+                
+                try {
+                    byte[] bytesImg = archivo.getBytes();
+                    Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + archivo.getOriginalFilename());
+                    Files.write(rutaCompleta, bytesImg);
+                    
+                    u.setImagen(archivo.getOriginalFilename());
+                } catch (IOException ex) {
+                    Logger.getLogger(UsuarioServicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+            
        
             return usuarioRepo.save(u);           
         } else {
@@ -135,6 +157,25 @@ public class UsuarioServicio implements UserDetailsService {
             Usuario u = respuesta.get();
             u.setPuntos(u.getPuntos()+1);
             usuarioRepo.save(u);
+        } else {
+            throw new Exception("No se ha encontrado el usuario");
+        }
+    }
+    
+         @Transactional
+    public void restar(String id) throws Exception {
+        Optional<Usuario> respuesta = usuarioRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Usuario u = respuesta.get();
+            if(u.getPuntos()>0){
+          
+            u.setPuntos(u.getPuntos()-1);
+            usuarioRepo.save(u);
+            arbolservicio.sumar(u.getArbol().getId());
+                  
+            }else {
+            throw new Exception("No tienes puntos suficientes para hacer crecer el arbol");
+        }
         } else {
             throw new Exception("No se ha encontrado el usuario");
         }

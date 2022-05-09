@@ -47,7 +47,7 @@
                 <a class="nav-link" aria-current="page" href="/contenido">Contenido</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/communidad">Comunidad</a>
+                <a class="nav-link active" aria-current="page" href="/comunidad">Comunidad</a>
               </li>
             </ul>
             <div class="d-flex ">
@@ -64,8 +64,11 @@
       <div class="usuario" th:each="usuario:${listaUsuarios}">
       <div class="row featurette">
         <div class="col-md-3 ">
-          <div class="imgPerfil"> 
+          <div class="imgPerfil" th:if="${usuario.imagen}==null"> 
             <img src="/images/usuario.png" alt=""> 
+          </div>
+          <div class="imgPerfil" th:if="${usuario.imagen}!=null"> 
+            <img th:src="@{'/images/' + ${usuario.imagen}}" th:alt="${usuario.imagen}" > 
           </div>
 
         </div>

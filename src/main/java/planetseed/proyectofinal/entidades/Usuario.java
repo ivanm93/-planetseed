@@ -39,8 +39,7 @@ public class Usuario {
     private String descripcion;
     private Boolean alta;
     
-    @OneToOne
-    private Imagen imagen;
+    private String imagen;
     
     @Enumerated(EnumType.STRING)
     private Role role;  

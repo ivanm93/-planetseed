@@ -67,8 +67,11 @@
       <div class=" perfil">
         <div class="row">
         <div class="col-md-5 ">
-          <div class="imagenPerfil"> 
+          <div class="imagenPerfil" th:if="${usuario.imagen}==null"> 
             <img src="/images/usuario.png" alt=""> 
+          </div>
+          <div class="imagenPerfil" th:if="${usuario.imagen}!=null"> 
+            <img th:src="@{'/images/' + ${usuario.imagen}}" th:alt="${usuario.imagen}" > 
           </div>
 
         </div>
@@ -85,11 +88,24 @@
              
              <div class="botonregar">
               <p>Nombre: <i th:text="${usuario.arbol.nombre}"></i> </p>
-              <p>Puntos del àrbol: <i th:text="${usuario.arbol.puntos}"></i></p>
-              <a href="#" class="btn btn-success ">Regar <i class="bi bi-heart"></i></a>
+              <p>Puntos del àrbol: <i th:text="${usuario.arbol.puntos}"></i> /42</p>
+              <a href="/regar" class="btn btn-success ">Regar <i class="bi bi-heart"></i></a>
+            
             </div>
+            <div class="alert alert-danger" role="alert" th:if="${error}!=null">
+              <p th:text="${error}"></p>
+           </div>
+
               <div class="arbol">
-                  <video src="/videos/arbol.mp4" width="700" controls></video> 
+                  <video src="/videos/0.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '0'"></video> 
+                  <video src="/videos/1.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '6'  and ${usuario.arbol.puntos} gt '0' "></video> 
+                  <video src="/videos/2.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '12' and ${usuario.arbol.puntos} gt '6'"></video> 
+                  <video src="/videos/3.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '18' and ${usuario.arbol.puntos} gt '12'"></video> 
+                  <video src="/videos/4.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '24' and ${usuario.arbol.puntos} gt '18'"></video> 
+                  <video src="/videos/5.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '30' and ${usuario.arbol.puntos} gt '24'"></video> 
+                  <video src="/videos/6.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '36' and ${usuario.arbol.puntos} gt '30'"></video> 
+                  <video src="/videos/7.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '42' and ${usuario.arbol.puntos} gt '36'"></video> 
+
               </div>
             </div>
         <!-- inicio del foooter parte de abajo de la pantalla -->
