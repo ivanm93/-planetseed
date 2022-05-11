@@ -4,8 +4,17 @@
 }
 /*perfil, registro*/
 .formulario{
+  
     max-width: 500px ;
     margin:auto ;
+    padding-top: 30px;
+}
+/*Login, registro*/
+.fondo{
+  background-image: url(/images/bglogin.jpg);
+  width: 100%;
+  height: 600px;
+background-size: cover;
 }
 /*perfil*/
 .imagenPerfil img{
@@ -18,12 +27,19 @@
 .perfil{
   width: 100%;
   height: auto;
-  background-color: azure;
+background-image: url(/images/bgbanner.jpg);
   padding: 10px 0;
+  background-size: cover;
+box-sizing: border-box;
+}
+.video{
+  width: 80%;
+  padding: 10px;
+background-color: #dcedc8;
+margin: 10px auto !important;
 }
 .arbol{
   width: 800px;
-  height: 550px;
   margin:10px auto;
   text-align : center; 
 }
@@ -32,28 +48,75 @@
 }
 .botonregar{
   width: 800px;
-  text-align:right;
+  text-align:left;
   padding-top: 50px;
+  font-size: 30px;
 }
-.video{
-  width: 100%;
-  height: auto;
-  background-color: #7fffd4;
+.negrita{
+font-weight: bolder;
+}
 
-}
 .configurar{
   margin: auto 10px;
   text-decoration: none;
   color: black !important;
 }
 /*contenido*/
+/*Espacio para el flip box*/
+.flip-box {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-box-back {
+  transform: rotateX(180deg);
+  padding: 20px;
+}
+/*Fin flip box*/
+
 .cajasFlex {
   display:inline-flex;
-  flex-wrap: wrap
-  }
+  flex-wrap: wrap;
+  background-image: url(/images/bgcontenido.jpg);
+  background-size: cover;
+}
   .card{
-    width: 18rem;
+    width: 300px;
+    height: 200px;
     margin: 30px;
+
+  }
+  .card-title{
+    color: white;
   }
 
 /*Resumen*/
@@ -76,6 +139,9 @@ hr{
   left: 150px;
   color: white;
   }
+  .center{
+    text-align: center;
+  }
 .imagen{
   width: 750px;
   background-size: cover;
@@ -90,12 +156,20 @@ hr{
   text-align:end;
 }
 /*Comunidad*/
+.seccioncomunidad{
+background-image: url(/images/fondo3.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+height: 1200px;
+}
 .usuario{
-  width: 90%;
+  width: 80%;
   height: auto;
   border: solid 1px black;
   margin: 30px auto;
   border-radius: 20px;
+  background-color: beige;
+  
 }
 .imgPerfil img {
   width: 150px;
@@ -132,3 +206,4 @@ text-align: end;
 .btnguardar{
   margin: 10px;
 }
+

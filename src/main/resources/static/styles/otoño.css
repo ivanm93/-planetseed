@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: crosshair;
+}
+#container-otoño {
+  widows: 100%;
+  height: auto;
+  background-color: rgba(248, 248, 248, 0.692);
+  background-image: url(/images/fondo3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  filter: contrast(1);
+  overflow: hidden;
+}
+
+otoño {
+  position: absolute;
+  border-radius: 50%;
+  top: -10px;
+  animation: hojas-otoño linear infinite;
+  z-index: 10;
+
+  /*  position: fixed; */
+}
+
+@keyframes hojas-otoño {
+  0% {
+    background-image: url(/images/hojaOtoño.png);
+    background-size: cover;
+    top: -10px;
+    transform: rotate(0deg) translateX(100px);
+
+    filter: hue-rotate(0deg) contrast(1);
+  }
+  20% {
+    filter: hue-rotate(60deg);
+  }
+  50% {
+    background-image: url(/images/hojaOtoño.png);
+    background-size: cover;
+    transform: rotate(180deg) translateX(-100px);
+  }
+  100% {
+    background-image: url(/images/hojaOtoño.png);
+    background-size: cover;
+    top: calc(100vh + 50px);
+    transform: rotate(360deg) translateX(200px);
+    filter: hue-rotate(0deg) contrast(1);
+  }
+}

@@ -49,11 +49,8 @@ public class UsuarioServicio implements UserDetailsService {
             String password) throws ErrorServicio {
    
         validar(nombre, apellido, edad, email, password);      //validar datos
-
         Usuario u = new Usuario(); //creo un nuevo usuario para setear
-
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(); //codifico contraseña
-        
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(); //codifico contraseña    
         Arbol arbol = new Arbol(); //Crear objeto de arbol vacio para un usuario nuevo 
         arbolservicio.crear(arbol);
         
@@ -83,7 +80,6 @@ public class UsuarioServicio implements UserDetailsService {
         Optional<Usuario> respuesta = usuarioRepo.findById(id);
         if (respuesta.isPresent()) {
             Usuario u = respuesta.get();
-
             u.setNombre(nombre);
             u.setApellido(apellido);
             u.setEdad(edad);
@@ -96,7 +92,7 @@ public class UsuarioServicio implements UserDetailsService {
     }
     
         @Transactional
-    public Usuario editarfoto(String id, MultipartFile archivo) throws ErrorServicio {
+    public Usuario editarFoto(String id, MultipartFile archivo) throws ErrorServicio {
         
         Optional<Usuario> respuesta = usuarioRepo.findById(id);
         if (respuesta.isPresent()) {
@@ -105,7 +101,6 @@ public class UsuarioServicio implements UserDetailsService {
             if(!archivo.isEmpty()){
                 Path directorioImagenes = Paths.get("src//main//resources//static/images");
                 String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
-                
                 try {
                     byte[] bytesImg = archivo.getBytes();
                     Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + archivo.getOriginalFilename());
@@ -115,10 +110,22 @@ public class UsuarioServicio implements UserDetailsService {
                 } catch (IOException ex) {
                     Logger.getLogger(UsuarioServicio.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
             }
-            
-       
+            return usuarioRepo.save(u);           
+        } else {
+            throw new ErrorServicio("No se ha encontrado el usuario");
+        }
+    }
+
+    @Transactional
+    public Usuario editarContraseña(String id, String password1, String password2) throws ErrorServicio {
+                BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(); //codifico contraseña    
+       validarContraseñas(password1, password2);
+        Optional<Usuario> respuesta = usuarioRepo.findById(id);
+        if (respuesta.isPresent()) {
+            Usuario u = respuesta.get();
+        u.setPassword(encoder.encode(password1));
+
             return usuarioRepo.save(u);           
         } else {
             throw new ErrorServicio("No se ha encontrado el usuario");
@@ -219,6 +226,17 @@ public class UsuarioServicio implements UserDetailsService {
         }
         if (password == null || password.isEmpty() || password.length() < 3) {
             throw new ErrorServicio("La contraseña es inválida");
+        }
+    }
+    
+            public void validarContraseñas(String password1, String password2) throws ErrorServicio {
+        if (password1 == null || password1.isEmpty() || password1.length() < 3) {
+            throw new ErrorServicio("La contraseña es inválida, debe ser mayor a 3 caracteres");
+        }
+         if (!password1.equals(password2) ) {
+             System.out.println(password1);
+             System.out.println(password2);
+            throw new ErrorServicio("La contraseña no coinciden");
         }
     }
 

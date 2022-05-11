@@ -50,6 +50,9 @@
                 <a class="nav-link" aria-current="page" href="/comunidad">Comunidad</a>
               </li>
             </ul>
+       
+              
+            </div>
             <div class="d-flex ">
               <span class="nav-link" th:if="${session.usuariosession!=null}" th:text="${usuario.puntos + ' puntos'}"></span>
             </div>
@@ -57,12 +60,24 @@
               <a class="cerrar" href="/logout">cerrar sesion</a>
             </div>
             <div class="d-flex configurar">
-              <a class="bi bi-gear" href="/editarusuario"></a>
-            </div>
+
+              <div class="btn-group dropstart">
+                <button type="button"  class="bi bi-gear" data-bs-toggle="dropdown" aria-expanded="false">
+          
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="#">Menu item</a></li>
+                  <li><a class="dropdown-item" href="#">Menu item</a></li>
+                  <li><a class="dropdown-item" href="#">Menu item</a></li>
+                </ul>
+              </div>
           </div>
         </div>
       </nav>
+      
+    
 
+   
       <!-- inicio seccion perfil -->
       <div class=" perfil">
         <div class="row">
@@ -73,8 +88,8 @@
           <div class="imagenPerfil" th:if="${usuario.imagen}!=null"> 
             <img th:src="@{'/images/' + ${usuario.imagen}}" th:alt="${usuario.imagen}" > 
           </div>
-
         </div>
+        
         <div class="col-md-7 datos">
           <h2 class="featurette-heading" th:if="${usuario!=null}" th:text="${usuario.nombre+ ' '+ usuario.apellido+', '+ usuario.edad+ ' años.'}"></h2>
           <p class="lead" th:if="${usuario.descripcion==null}"> Agregue descripcion desde configuraciones <i class="bi bi-gear" ></i></p> 
@@ -84,19 +99,10 @@
     </div>
     
              <!-- Arbol -->
-             <div class="video">
              
-             <div class="botonregar">
-              <p>Nombre: <i th:text="${usuario.arbol.nombre}"></i> </p>
-              <p>Puntos del àrbol: <i th:text="${usuario.arbol.puntos}"></i> /42</p>
-              <a href="/regar" class="btn btn-success ">Regar <i class="bi bi-heart"></i></a>
-            
-            </div>
-            <div class="alert alert-danger" role="alert" th:if="${error}!=null">
-              <p th:text="${error}"></p>
-           </div>
+  <div class="video row align-items-start">
 
-              <div class="arbol">
+              <div class="arbol col">
                   <video src="/videos/0.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '0'"></video> 
                   <video src="/videos/1.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '6'  and ${usuario.arbol.puntos} gt '0' "></video> 
                   <video src="/videos/2.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '12' and ${usuario.arbol.puntos} gt '6'"></video> 
@@ -105,12 +111,23 @@
                   <video src="/videos/5.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '30' and ${usuario.arbol.puntos} gt '24'"></video> 
                   <video src="/videos/6.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '36' and ${usuario.arbol.puntos} gt '30'"></video> 
                   <video src="/videos/7.mp4" width="700" autoplay th:if="${usuario.arbol.puntos} le '42' and ${usuario.arbol.puntos} gt '36'"></video> 
-
               </div>
+
+              <div class="botonregar col">
+                <i class="negrita">Nombre: </i><i th:text="${usuario.arbol.nombre}" ></i> <br>
+                <i class="negrita">Puntos del àrbol: </i><i th:text="${usuario.arbol.puntos}"></i> /42 <br>
+                <a href="/regar" class="btn btn-success ">Regar <i class="bi bi-heart"></i></a>
+              
+                <div class="alert alert-danger" role="alert" th:if="${error}!=null">
+                  <p th:text="${error}"></p>
+               </div>
+              </div>
+
+            
             </div>
         <!-- inicio del foooter parte de abajo de la pantalla -->
      
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
         <div class="col-md-4 d-flex align-items-center">
           <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
             <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>

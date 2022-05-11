@@ -166,10 +166,12 @@
 
 
   <!-- Editar contraseña -->
-  <form class="formulario" action="/" method="POST">
+  <form class="formulario" action="/cambiarcontraseña" method="POST">
 
     <legend><strong>Editar contraseña</strong></legend>
     <div class="mb-3">
+      <input type="hidden" id="disabledTextInput" name="id" th:value="*{usuario.id}" class="form-control">
+
       <label for="disabledTextInput" class="form-label">Contraseña nueva</label>
       <input type="text" id="disabledTextInput" name="password1" class="form-control">
     </div>
@@ -180,7 +182,13 @@
     </div>
     <button type="submit" class="btn btn-success btnguardar">Guardar</button>
   </form>
-
+  <!-- cartel de exito  o error -->
+  <div class="alert alert-success" role="alert" th:if="${correcto}!=null">
+    <p th:text="${correcto}"></p>
+  </div>
+  <div class="alert alert-danger" role="alert" th:if="${incorrecto}!=null">
+    <p th:text="${incorrecto}"></p>
+  </div>
 
   <!-- fin seccion -->
   <div class="container">
