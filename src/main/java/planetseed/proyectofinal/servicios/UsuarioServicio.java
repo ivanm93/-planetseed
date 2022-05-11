@@ -75,7 +75,7 @@ public class UsuarioServicio implements UserDetailsService {
 
     @Transactional
     public Usuario editar(String id, String nombre, String apellido, Integer edad,
-           String descripcion, MultipartFile archivo) throws ErrorServicio {
+           String descripcion) throws ErrorServicio {
         
         Optional<Usuario> respuesta = usuarioRepo.findById(id);
         if (respuesta.isPresent()) {

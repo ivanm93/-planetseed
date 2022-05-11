@@ -11,6 +11,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/images/logo1">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
   <title>Planetseed</title>
 </head>
 
@@ -67,15 +71,25 @@
           <a class="cerrar" href="/logout">cerrar sesion</a>
         </div>
         <div class="d-flex configurar">
-          <a class="bi bi-gear" href="/editarusuario"></a>
-        </div>
+
+          <div class="btn-group">
+            <button type="button"  class="bi bi-gear" data-bs-toggle="dropdown" aria-expanded="false">
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-light">
+              <li><a class="dropdown-item" href="/editarusuario?opcion=1">Editar infromación</a></li>
+              <li><a class="dropdown-item" href="/editarusuario?opcion=2">Cambiar foto</a></li>
+              <li><a class="dropdown-item" href="/editarusuario?opcion=3">Cambiar contraseña</a></li>
+              <li><a class="dropdown-item" href="/editarusuario?opcion=4">Editar árbol</a></li>
+            </ul>
+          </div>
+      </div>
       </div>
     </div>
   </nav>
 
   <!-- seccion -->
   <!-- Editar usuario -->
-  <form class="formulario" action="/editarusuario" method="POST">
+  <form class="formulario" action="/editarusuario" method="POST" th:if="${opcion}==1">
     <legend><strong>Editar Perfil</strong></legend>
 
 
@@ -115,9 +129,8 @@
   <div class="alert alert-danger" role="alert" th:if="${error}!=null">
     <p th:text="${error}"></p>
   </div>
-
     <!-- Cambiar foto -->
-    <form class="formulario" action="/cambiarfoto" method="POST" enctype="multipart/form-data">
+    <form class="formulario" action="/cambiarfoto" method="POST" enctype="multipart/form-data" th:if="${opcion} == '2'">
 
       <legend><strong>Editar foto de perfil</strong></legend>
   
@@ -141,7 +154,7 @@
 
 
   <!-- Editar abol -->
-  <form class="formulario" action="/editararbol" method="POST">
+  <form class="formulario" action="/editararbol" method="POST" th:if="${opcion} == '4'">
 
     <legend><strong>Editar nombre del arbol</strong></legend>
 
@@ -166,19 +179,29 @@
 
 
   <!-- Editar contraseña -->
-  <form class="formulario" action="/cambiarcontraseña" method="POST">
+  <form class="formulario" action="/cambiarcontraseña" method="POST" th:if="${opcion} == '3'">
 
     <legend><strong>Editar contraseña</strong></legend>
     <div class="mb-3">
       <input type="hidden" id="disabledTextInput" name="id" th:value="*{usuario.id}" class="form-control">
 
       <label for="disabledTextInput" class="form-label">Contraseña nueva</label>
-      <input type="text" id="disabledTextInput" name="password1" class="form-control">
+      <div class="input-group">
+        <input ID="txtPassword" type="Password" name="password1" Class="form-control">
+        <div class="input-group-append">
+              <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+            </div>
+      </div>
     </div>
 
     <div class="mb-3">
       <label for="disabledTextInput" class="form-label">Repita Contraseña nueva</label>
-      <input type="text" id="disabledTextInput" name="password2" class="form-control">
+      <div class="input-group">
+        <input ID="txtPassword2" type="Password" name="password2" Class="form-control">
+        <div class="input-group-append">
+              <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword2()"> <span class="fa fa-eye-slash icon"></span> </button>
+            </div>
+      </div>
     </div>
     <button type="submit" class="btn btn-success btnguardar">Guardar</button>
   </form>
@@ -215,6 +238,45 @@
       </ul>
     </footer>
   </div>
+  <script type="text/javascript">
+    function mostrarPassword(){
+        var cambio = document.getElementById("txtPassword");
+        if(cambio.type == "password"){
+          cambio.type = "text";
+          $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+        }else{
+          cambio.type = "password";
+          $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+        }
+      } 
+      
+      $(document).ready(function () {
+      //CheckBox mostrar contraseña
+      $('#ShowPassword').click(function () {
+        $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+      });
+    });
+    </script>
+
+    <script type="text/javascript">
+      function mostrarPassword2(){
+          var cambio = document.getElementById("txtPassword2");
+          if(cambio.type == "password"){
+            cambio.type = "text";
+            $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+          }else{
+            cambio.type = "password";
+            $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+          }
+        } 
+        
+        $(document).ready(function () {
+        //CheckBox mostrar contraseña
+        $('#ShowPassword').click(function () {
+          $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+        });
+      });
+      </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>

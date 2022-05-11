@@ -23,7 +23,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import planetseed.proyectofinal.entidades.Usuario;
 import planetseed.proyectofinal.errores.ErrorServicio;
 import planetseed.proyectofinal.servicios.ArbolServicio;
-import planetseed.proyectofinal.servicios.PreguntaServicio;
 import planetseed.proyectofinal.servicios.UsuarioServicio;
 
 @Controller
@@ -176,10 +175,12 @@ public class MainController {
     
     
     @GetMapping("/editarusuario")
-    public String EditarUsuario(ModelMap modelo, HttpSession session) {
+    public String EditarUsuario(ModelMap modelo, HttpSession session,@RequestParam(required = false) Integer opcion) {
         try {
             Usuario usuario = (Usuario) session.getAttribute("usuariosession");
             modelo.put("usuario", usuarioServicio.buscarPorId(usuario.getId()));
+           modelo.put("opcion", opcion);
+
         } catch (Exception ex) {
             modelo.put("error", ex.getMessage());
         }
@@ -189,17 +190,14 @@ public class MainController {
     @PostMapping("/editarusuario")
     public String editar(ModelMap modelo, RedirectAttributes redirectAttributes, @RequestParam String id,
             @RequestParam(required = false) String nombre, @RequestParam(required = false) String apellido,
-            @RequestParam(required = false) Integer edad, @RequestParam(required = false) String descripcion,
-            @RequestParam(required = false) MultipartFile archivo) {
+            @RequestParam(required = false) Integer edad, @RequestParam(required = false) String descripcion) {
         try {
-            usuarioServicio.editar(id, nombre, apellido, edad, descripcion, archivo);
-            modelo.put("exito", "Se ha editado el perfil");
+            usuarioServicio.editar(id, nombre, apellido, edad, descripcion);
             redirectAttributes.addFlashAttribute("exito", "Usuario editado con éxito");
         } catch (ErrorServicio ex) {
-            modelo.put("error", ex.getMessage());
             redirectAttributes.addFlashAttribute("error", ex.getMessage());
         }
-        return "redirect:/editarusuario";
+        return "redirect:/editarusuario?opcion=1";
     }
     
         @PostMapping("/cambiarfoto")
@@ -211,7 +209,7 @@ public class MainController {
         } catch (ErrorServicio ex) {
             redirectAttributes.addFlashAttribute("singuardar", ex.getMessage());
         }
-        return "redirect:/editarusuario";
+        return "redirect:/editarusuario?opcion=2";
     }
 
     @PostMapping("/editararbol")
@@ -224,7 +222,7 @@ public class MainController {
             modelo.put("fall", ex.getMessage());
             redirectAttributes.addFlashAttribute("error", ex.getMessage());
         }
-        return "redirect:/editarusuario";
+        return "redirect:/editarusuario?opcion=4";
     }
 
         @PostMapping("/cambiarcontraseña")
@@ -236,7 +234,7 @@ public class MainController {
         } catch (ErrorServicio ex) {
             redirectAttributes.addFlashAttribute("incorrecto", ex.getMessage());
         }
-        return "redirect:/editarusuario";
+        return "redirect:/editarusuario?opcion=3";
     }
     
     

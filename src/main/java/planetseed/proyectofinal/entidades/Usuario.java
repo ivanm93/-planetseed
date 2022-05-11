@@ -47,8 +47,6 @@ public class Usuario {
     @OneToOne
     private Arbol arbol;
    
-//    @OneToMany
-//    private List<Pregunta> pregunta; 
  
 }
 

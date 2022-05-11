@@ -61,14 +61,14 @@
             </div>
             <div class="d-flex configurar">
 
-              <div class="btn-group dropstart">
+              <div class="btn-group">
                 <button type="button"  class="bi bi-gear" data-bs-toggle="dropdown" aria-expanded="false">
-          
                 </button>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="#">Menu item</a></li>
-                  <li><a class="dropdown-item" href="#">Menu item</a></li>
-                  <li><a class="dropdown-item" href="#">Menu item</a></li>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-light">
+                  <li><a class="dropdown-item" href="/editarusuario?opcion=1">Editar infromación</a></li>
+                  <li><a class="dropdown-item" href="/editarusuario?opcion=2">Cambiar foto</a></li>
+                  <li><a class="dropdown-item" href="/editarusuario?opcion=3">Cambiar contraseña</a></li>
+                  <li><a class="dropdown-item" href="/editarusuario?opcion=4">Editar árbol</a></li>
                 </ul>
               </div>
           </div>
@@ -114,9 +114,10 @@
               </div>
 
               <div class="botonregar col">
-                <i class="negrita">Nombre: </i><i th:text="${usuario.arbol.nombre}" ></i> <br>
+                <i class="negrita ">Nombre: </i><i th:text="${usuario.arbol.nombre}" ></i> <br>
                 <i class="negrita">Puntos del àrbol: </i><i th:text="${usuario.arbol.puntos}"></i> /42 <br>
                 <a href="/regar" class="btn btn-success ">Regar <i class="bi bi-heart"></i></a>
+                <p class="negrita leyenda">"El arbol crecerá cada 6 puntos"</p>
               
                 <div class="alert alert-danger" role="alert" th:if="${error}!=null">
                   <p th:text="${error}"></p>
