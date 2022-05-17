@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -40,7 +40,7 @@ public class ConfiguracionesSeguridad extends WebSecurityConfigurerAdapter{
                         
                         .usernameParameter("email")
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/perfil?").permitAll() 
+                        .defaultSuccessUrl("/contenido?").permitAll() 
                 .and().logout() 
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login?logout").permitAll()

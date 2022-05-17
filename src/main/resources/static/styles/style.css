@@ -51,7 +51,6 @@ background-size: cover;
 .botonregar{
   width: 800px;
   text-align:left;
-  padding-top: 50px;
   font-size: 30px;
 }
 .negrita{
@@ -62,6 +61,14 @@ font-weight: bolder;
   margin-top: 140px;
   border-radius: 10px;
   font-size: 28px;
+}
+.descripcion{
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 28px;
+  background-color: white;
+  padding-left: 10px;
+  width: 600px;
 }
 
 .configurar{
